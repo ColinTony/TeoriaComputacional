@@ -8,13 +8,6 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 
 public class FXMLMainController {
-
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
-
     @FXML
     private Button btnInicio;
 
@@ -32,7 +25,7 @@ public class FXMLMainController {
 
     @FXML
     void iniciar(ActionEvent event) {
-
+        
     }
 
     @FXML
