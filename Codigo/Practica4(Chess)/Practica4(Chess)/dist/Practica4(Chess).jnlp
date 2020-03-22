@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Practica4(Chess).jnlp">
+  <information>
+    <title>Practica4(Chess)</title>
+    <vendor>colin</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Practica4(Chess).jar" size="436103" download="eager" />
+    <jar href="lib\jfoenix-8.0.8.jar" size="2708772" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="practica4.chess.Practica4Chess"  name="Practica4(Chess)" />
+  <update check="always"/>
+</jnlp>
