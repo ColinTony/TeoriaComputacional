@@ -2,10 +2,19 @@ package practica4.chess.Controllers;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
+import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.AudioClip;
+import javafx.util.Duration;
+import practica4.chess.Models.Pieza;
 
 public class FXMLMainController {
     @FXML
@@ -22,22 +31,25 @@ public class FXMLMainController {
 
     @FXML
     private Button btnReiniciar;
-
+    
+    private Pieza pieza1Object;
+    private Pieza pieza2Object;
+    
     @FXML
-    void iniciar(ActionEvent event) {
-        
+    void iniciar(ActionEvent event) throws InterruptedException {
+        this.pieza1Object.moverX(false);
     }
-
+    
     @FXML
     void reiniciar(ActionEvent event) {
-
+        this.pieza1Object = new Pieza(pieza1);
+        this.pieza2Object = new Pieza(pieza2);
     }
 
     @FXML
     void salir(ActionEvent event) {
 
     }
-
     @FXML
     void initialize() {
         assert btnInicio != null : "fx:id=\"btnInicio\" was not injected: check your FXML file 'FXMLMain.fxml'.";
@@ -45,6 +57,7 @@ public class FXMLMainController {
         assert pieza2 != null : "fx:id=\"pieza2\" was not injected: check your FXML file 'FXMLMain.fxml'.";
         assert btnSalir != null : "fx:id=\"btnSalir\" was not injected: check your FXML file 'FXMLMain.fxml'.";
         assert btnReiniciar != null : "fx:id=\"btnReiniciar\" was not injected: check your FXML file 'FXMLMain.fxml'.";
-
+        this.pieza1Object = new Pieza(pieza1);
+        this.pieza2Object = new Pieza(pieza2);
     }
 }
