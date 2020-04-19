@@ -72,12 +72,9 @@ public class Pieza {
                     posActualX--;
                 else
                     posActualX++;
-                System.out.println(getPosCompleta());
             }
         });
         translateTransition.play();
-        
-        
     }
     
     public void moverY(boolean abj) throws InterruptedException

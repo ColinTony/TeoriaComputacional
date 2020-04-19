@@ -1,5 +1,6 @@
 package practica4.chess.Controllers;
 
+import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
@@ -38,6 +39,7 @@ public class FXMLMainController {
     @FXML
     void iniciar(ActionEvent event) throws InterruptedException {
         this.pieza1Object.moverX(false);
+        this.pieza2Object.moverY(true);
     }
     
     @FXML
