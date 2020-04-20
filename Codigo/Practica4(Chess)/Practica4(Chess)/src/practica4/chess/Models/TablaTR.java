@@ -1,5 +1,7 @@
 package practica4.chess.Models;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author colin
@@ -8,5 +10,13 @@ package practica4.chess.Models;
  * y devolvera el siguiente estado o el conjunto de estados posibles
  */
 public class TablaTR {
-    
+    private int tablaT [][];
+    private ArrayList<Integer> conjunto;
+    public TablaTR()
+    {
+        this.conjunto = new ArrayList<Integer>(2);
+        tablaT[0][0] = 5;
+        conjunto.add(2);
+        conjunto.add(4);
+    }
 }
