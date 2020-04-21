@@ -17,5 +17,29 @@ public class EstadoActual {
         this.estadoActual = estadoActual;
         this.estadoAnterior = estadoAnterior;
     }
+
+    public int getEstadoActual() {
+        return estadoActual;
+    }
+
+    public void setEstadoActual(int estadoActual) {
+        this.estadoActual = estadoActual;
+    }
+
+    public int getEstadoAnterior() {
+        return estadoAnterior;
+    }
+
+    public void setEstadoAnterior(int estadoAnterior) {
+        this.estadoAnterior = estadoAnterior;
+    }
+
+    public boolean isIsValida() {
+        return isValida;
+    }
+
+    public void setIsValida(boolean isValida) {
+        this.isValida = isValida;
+    }
     
 }

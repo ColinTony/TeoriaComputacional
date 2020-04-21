@@ -133,4 +133,17 @@ public class TablaTR {
         this.estadosTR.get(1).add(conjunto);
     }
     
+    public Estados funcionTransicion(EstadoActual qA,String nOrB)
+    {
+        // Se recibe un estado actual y se busca en la interseccion 
+        // en la tabla de transicion.
+        int colu = 0;
+        
+        // verificamos que sea N
+        if(nOrB.equalsIgnoreCase("B"))
+            colu = 1;
+        
+        this.conjunto = this.estadosTR.get(colu).get(qA.getEstadoActual());
+        return this.conjunto;
+    }
 }

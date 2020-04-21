@@ -36,10 +36,11 @@ public class FXMLMainController {
     private Pieza pieza1Object;
     private Pieza pieza2Object;
     
+    private 
+    
     @FXML
     void iniciar(ActionEvent event) throws InterruptedException {
-        this.pieza1Object.moverX(false);
-        this.pieza2Object.moverY(true);
+        
     }
     
     @FXML
