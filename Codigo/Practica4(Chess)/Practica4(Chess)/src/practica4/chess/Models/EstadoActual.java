@@ -17,4 +17,5 @@ public class EstadoActual {
         this.estadoActual = estadoActual;
         this.estadoAnterior = estadoAnterior;
     }
+    
 }

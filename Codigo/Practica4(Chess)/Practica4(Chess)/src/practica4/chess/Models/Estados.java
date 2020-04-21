@@ -13,6 +13,14 @@ public class Estados {
     
     public Estados()
     {
-        
+        this.estadosQ = new ArrayList<>();
+    }
+
+    public ArrayList<Integer> getEstadosQ() {
+        return estadosQ;
+    }
+
+    public void setEstadosQ(ArrayList<Integer> estadosQ) {
+        this.estadosQ = estadosQ;
     }
 }
