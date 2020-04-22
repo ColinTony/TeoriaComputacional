@@ -11,7 +11,7 @@ public class EstadoActual {
     private int estadoAnterior;
     private boolean isValida;
     
-    public EstadoActual(int estadoActual, int estadoAnterior)
+    public EstadoActual(int estadoActual)
     {
         this.isValida = false;
         this.estadoActual = estadoActual;
@@ -19,7 +19,7 @@ public class EstadoActual {
     }
 
     public int getEstadoActual() {
-        return estadoActual;
+        return estadoActual-1;
     }
 
     public void setEstadoActual(int estadoActual) {

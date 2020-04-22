@@ -15,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
+import practica4.chess.Models.EstadoActual;
 import practica4.chess.Models.Pieza;
 
 public class FXMLMainController {
@@ -36,11 +37,13 @@ public class FXMLMainController {
     private Pieza pieza1Object;
     private Pieza pieza2Object;
     
-    private 
+    private EstadoActual qA;
     
     @FXML
     void iniciar(ActionEvent event) throws InterruptedException {
-        
+        this.qA = new EstadoActual(1);
+        AutomataFND automata = new AutomataFND(qA);
+        automata.evaluarCaracter();
     }
     
     @FXML
