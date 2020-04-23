@@ -26,9 +26,10 @@ public class AutomataFND {
     public void evaluarCaracter() throws IOException
     {
         conjuntosEst = tablaTransicion.funcionTransicion(qA, cadena);
-        for(int i = 0; i<conjuntosEst.getEstadosQ().size(); i++)
-        {
-            this.archivoRutas.escribirArchivo(this.conjuntosEst.getEstadosQ().get(i).toString());
-        }
+        mandarRuta();
+    }
+    public void mandarRuta() throws IOException
+    {
+        // aqui debemos escribir el algoritmo para todas las rutas
     }
 }
