@@ -1,5 +1,6 @@
 package practica4.chess.Controllers;
 
+import java.io.IOException;
 import static java.lang.Thread.sleep;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -40,7 +41,7 @@ public class FXMLMainController {
     private EstadoActual qA;
     
     @FXML
-    void iniciar(ActionEvent event) throws InterruptedException {
+    void iniciar(ActionEvent event) throws InterruptedException, IOException {
         this.qA = new EstadoActual(1);
         AutomataFND automata = new AutomataFND(qA);
         automata.evaluarCaracter();

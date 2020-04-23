@@ -1,5 +1,6 @@
 package practica4.chess.Controllers;
 
+import java.io.IOException;
 import practica4.chess.Models.EstadoActual;
 import practica4.chess.Models.Estados;
 import practica4.chess.Models.TablaTR;
@@ -13,19 +14,21 @@ public class AutomataFND {
     private TablaTR tablaTransicion;
     private EstadoActual qA;
     private Estados conjuntosEst;
-    
-    public AutomataFND(EstadoActual qA)
+    private ArchivoRutas archivoRutas;
+    public AutomataFND(EstadoActual qA) throws IOException
     {
         this.qA = qA;
         this.cadena = "N";
         this.tablaTransicion = new TablaTR();
+        this.archivoRutas = new ArchivoRutas("Prueba");
     }
-    public void evaluarCaracter()
+    
+    public void evaluarCaracter() throws IOException
     {
         conjuntosEst = tablaTransicion.funcionTransicion(qA, cadena);
         for(int i = 0; i<conjuntosEst.getEstadosQ().size(); i++)
         {
-            System.out.println(conjuntosEst.getEstadosQ().get(i));
+            this.archivoRutas.escribirArchivo(this.conjuntosEst.getEstadosQ().get(i).toString());
         }
     }
 }
