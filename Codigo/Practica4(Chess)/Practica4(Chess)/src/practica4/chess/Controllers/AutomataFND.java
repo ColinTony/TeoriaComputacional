@@ -1,6 +1,7 @@
 package practica4.chess.Controllers;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import practica4.chess.Models.EstadoActual;
 import practica4.chess.Models.Estados;
 import practica4.chess.Models.TablaTR;
@@ -36,11 +37,12 @@ public class AutomataFND {
     private void evaluarCaracter(char caracter) throws IOException
     {
         this.conjuntosEst = tablaTransicion.funcionTransicion(qA, String.valueOf(caracter));
-        mandarRuta();
+        mandarRuta();   
     }
+    
     private void mandarRuta() throws IOException
     {
-         String ruta="[";
+        String ruta="[";
         // aqui debemos escribir el algoritmo para todas las rutas
         for(int i = 0; i<this.conjuntosEst.getEstadosQ().size(); i++)
         {
@@ -51,6 +53,13 @@ public class AutomataFND {
         }
         ruta+="]";
         System.out.println(ruta);
-        this.archivoRutas.escribirArchivo(ruta);
+        
+        //this.archivoRutas.escribirArchivo(ruta);
+    }
+    
+    // para determinar que camino tomar sin interrumpir al otra piza
+    public void determinarEstadoActual(EstadoActual qAPieza2)
+    {
+        
     }
 }

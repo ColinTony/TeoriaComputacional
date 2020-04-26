@@ -38,18 +38,20 @@ public class FXMLMainController {
     private Pieza pieza1Object;
     private Pieza pieza2Object;
     
-    private EstadoActual qA;
+    private EstadoActual qA; // empieza en 1 y termina en 9
     
     @FXML
     void iniciar(ActionEvent event) throws InterruptedException, IOException {
         this.qA = new EstadoActual(1);
-        AutomataFND automata = new AutomataFND(qA,"Prueba");
-        automata.evaluarCadena("BN");
+        AutomataFND automata = new AutomataFND(qA,"automata1Rutas");
     }
     
     @FXML
     void reiniciar(ActionEvent event) {
         this.pieza1Object = new Pieza(pieza1);
+        this.pieza1Object.setPosActualTableroX(1);
+        this.pieza1Object.setPosActualTableroY(1);
+        
         this.pieza2Object = new Pieza(pieza2);
     }
 

@@ -19,7 +19,7 @@ public class EstadoActual {
     }
 
     public int getEstadoActual() {
-        return estadoActual-1;
+        return estadoActual;
     }
 
     public void setEstadoActual(int estadoActual) {

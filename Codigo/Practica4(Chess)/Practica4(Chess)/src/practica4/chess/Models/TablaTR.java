@@ -161,7 +161,7 @@ public class TablaTR {
         if(nOrB.equalsIgnoreCase("B"))
             colu = 1;
         
-        this.conjunto = this.estadosTR.get(colu).get(qA.getEstadoActual());
+        this.conjunto = this.estadosTR.get(colu).get(qA.getEstadoActual()-1);
         return this.conjunto;
     }
 }

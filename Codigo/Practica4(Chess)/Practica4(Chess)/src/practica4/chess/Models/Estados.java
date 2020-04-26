@@ -10,10 +10,11 @@ import java.util.ArrayList;
  */
 public class Estados {
     private ArrayList<Integer> estadosQ;
-    
+    private boolean isMoreOne;
     public Estados()
     {
         this.estadosQ = new ArrayList<>();
+        this.isMoreOne = false;
     }
 
     public ArrayList<Integer> getEstadosQ() {
@@ -22,5 +23,12 @@ public class Estados {
 
     public void setEstadosQ(ArrayList<Integer> estadosQ) {
         this.estadosQ = estadosQ;
+    }
+    
+    public boolean isMoreOne()
+    {
+        if(estadosQ.size() > 1)
+            this.isMoreOne = true;
+        return this.isMoreOne;
     }
 }

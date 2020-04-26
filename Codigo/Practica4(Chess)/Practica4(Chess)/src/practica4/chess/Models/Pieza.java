@@ -26,7 +26,9 @@ public class Pieza {
     private int posActualX;
     private int posActualY;
     private String posCompleta;
-    
+    private int posActualTableroX;
+    private int posActualTableroY;
+            
     public Pieza(ImageView imagenPieza) {
         this.imagenPieza = imagenPieza;
         this.posX = new ArrayList<>(4);
@@ -99,4 +101,22 @@ public class Pieza {
         translateTransition.play();
         
     }
+
+    public int getPosActualTableroX() {
+        return posActualTableroX;
+    }
+
+    public void setPosActualTableroX(int posActualTableroX) {
+        this.posActualTableroX = posActualTableroX;
+    }
+
+    public int getPosActualTableroY() {
+        return posActualTableroY;
+    }
+
+    public void setPosActualTableroY(int posActualTableroY) {
+        this.posActualTableroY = posActualTableroY;
+    }
+    
+    
 }
