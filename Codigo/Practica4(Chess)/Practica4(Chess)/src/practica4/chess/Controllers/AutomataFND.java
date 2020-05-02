@@ -44,7 +44,10 @@ public class AutomataFND {
         // solo nos queda determinar el valor de qA para que tome todos los valores
         // que ha tenido en el conjunto.
         this.conjuntosEst = tablaTransicion.funcionTransicion(qA, String.valueOf(caracter));
-        
+        escribirCaminos();
+    }
+    private void escribirCaminos()
+    {
         if(this.conjuntosEst.isMoreOne())
         {
             String cadAux; 
@@ -62,9 +65,9 @@ public class AutomataFND {
                         this.caminos.add(j, cadAux+this.conjuntosEst.getEstadosQ().get(j));
                 }
             }
+            this.caminos.remove(this.caminos.size()-1);
         }else{
             // si solo tinene un estado de respuesta solo lo añadimos a la cadena
-            
         }
     }
     
@@ -91,7 +94,7 @@ public class AutomataFND {
     {
         for(int i = 0; i<this.caminos.size(); i++)
         {
-            System.out.println(caminos.get(i));
+            System.out.println(i+"->"+caminos.get(i));
         }
     }
 }
