@@ -21,7 +21,7 @@ public class AutomataFND {
     public AutomataFND(EstadoActual qA, String nameArchivo,String cadena) throws IOException
     {
         this.caminos = new ArrayList<String>();
-        this.caminos.add("q1");
+        this.caminos.add("1");
         this.qA = qA;
         this.tablaTransicion = new TablaTR();
         this.archivoRutas = new ArchivoRutas("Pruebas");
@@ -41,14 +41,34 @@ public class AutomataFND {
     }
     private void evaluarCaracter(char caracter) throws IOException
     {
+        // solo nos queda determinar el valor de qA para que tome todos los valores
+        // que ha tenido en el conjunto.
         this.conjuntosEst = tablaTransicion.funcionTransicion(qA, String.valueOf(caracter));
+        
         if(this.conjuntosEst.isMoreOne())
         {
+            String cadAux; 
+            int limite = this.caminos.size();
+            
             // escribinedo los cmainos distintos
+            for(int i=0; i<limite; i++)
+            {
+                cadAux = this.caminos.get(i);
+                for(int j = 0; j < this.conjuntosEst.getEstadosQ().size(); j++)
+                {
+                    if(j>limite)
+                        this.caminos.add(cadAux+this.conjuntosEst.getEstadosQ().get(j));
+                    else
+                        this.caminos.add(j, cadAux+this.conjuntosEst.getEstadosQ().get(j));
+                }
+            }
+        }else{
+            // si solo tinene un estado de respuesta solo lo añadimos a la cadena
+            
         }
     }
     
-    private void mandarRuta(char caracter) throws IOException
+    private void mandarRuta() throws IOException
     {
         
         String ruta="[";
@@ -67,8 +87,11 @@ public class AutomataFND {
     }
     
     // para determinar que camino tomar sin interrumpir al otra piza
-    public void determinarEstadoActual(EstadoActual qAPieza2)
+    public void imprimirCamino()
     {
-        
+        for(int i = 0; i<this.caminos.size(); i++)
+        {
+            System.out.println(caminos.get(i));
+        }
     }
 }
