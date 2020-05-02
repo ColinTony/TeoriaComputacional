@@ -16,15 +16,20 @@ public class AutomataFND {
     private EstadoActual qA;
     private Estados conjuntosEst;
     private ArchivoRutas archivoRutas;
+    private ArrayList<String> caminos;
     
-    public AutomataFND(EstadoActual qA, String nameArchivo) throws IOException
+    public AutomataFND(EstadoActual qA, String nameArchivo,String cadena) throws IOException
     {
+        this.caminos = new ArrayList<String>();
+        this.caminos.add("q1");
         this.qA = qA;
         this.tablaTransicion = new TablaTR();
         this.archivoRutas = new ArchivoRutas("Pruebas");
         this.conjuntosEst = new Estados();
+        this.cadena = cadena;
     }
-    public void evaluarCadena(String cadena) throws IOException
+    
+    public void evaluarCadena() throws IOException
     {
         this.cadena = cadena;
         // mandar cada caracyer a evaluar el caracter
@@ -37,11 +42,15 @@ public class AutomataFND {
     private void evaluarCaracter(char caracter) throws IOException
     {
         this.conjuntosEst = tablaTransicion.funcionTransicion(qA, String.valueOf(caracter));
-        mandarRuta();   
+        if(this.conjuntosEst.isMoreOne())
+        {
+            // escribinedo los cmainos distintos
+        }
     }
     
-    private void mandarRuta() throws IOException
+    private void mandarRuta(char caracter) throws IOException
     {
+        
         String ruta="[";
         // aqui debemos escribir el algoritmo para todas las rutas
         for(int i = 0; i<this.conjuntosEst.getEstadosQ().size(); i++)
@@ -51,8 +60,8 @@ public class AutomataFND {
             // debemos revisar que el estado actual tambien cambie dependiendo de la desicion
             // tomada en la ruta seleccionada.
         }
-        ruta+="]";
-        System.out.println(ruta);
+        ruta+="]-";
+        System.out.print(ruta);
         
         //this.archivoRutas.escribirArchivo(ruta);
     }
