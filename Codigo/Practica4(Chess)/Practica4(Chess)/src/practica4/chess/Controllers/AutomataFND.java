@@ -59,13 +59,13 @@ public class AutomataFND {
                 cadAux = this.caminos.get(i);
                 for(int j = 0; j < this.conjuntosEst.getEstadosQ().size(); j++)
                 {
-                    if(j>limite)
-                        this.caminos.add(cadAux+this.conjuntosEst.getEstadosQ().get(j));
+                    System.out.println("J value : " + j);
+                    if(j<limite)
+                        this.caminos.set(j,cadAux+this.conjuntosEst.getEstadosQ().get(j));
                     else
-                        this.caminos.add(j, cadAux+this.conjuntosEst.getEstadosQ().get(j));
+                        this.caminos.add(cadAux+this.conjuntosEst.getEstadosQ().get(j));     
                 }
             }
-            this.caminos.remove(this.caminos.size()-1);
         }else{
             // si solo tinene un estado de respuesta solo lo añadimos a la cadena
         }
