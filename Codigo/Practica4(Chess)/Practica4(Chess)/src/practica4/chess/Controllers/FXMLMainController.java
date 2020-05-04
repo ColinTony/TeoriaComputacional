@@ -43,7 +43,7 @@ public class FXMLMainController {
     @FXML
     void iniciar(ActionEvent event) throws InterruptedException, IOException {
         this.qA = new EstadoActual(1);
-        AutomataFND automata = new AutomataFND(qA,"automata1Rutas","BN");
+        AutomataFND automata = new AutomataFND(qA,"automata1Rutas","BNBN");
         automata.evaluarCadena();
         automata.imprimirCamino();
     }

@@ -70,11 +70,11 @@ public class AutomataFND {
         String cadAux;
         cadAux = this.caminos.get(puntoReferencia);
         
-        this.caminos.set(puntoReferencia, cadAux + "->q"+this.conjuntosEst.getEstadosQ().get(0));
+        this.caminos.set(puntoReferencia, cadAux+this.conjuntosEst.getEstadosQ().get(0));
         
         if(this.conjuntosEst.isMoreOne())
             for(int k = 1; k < this.conjuntosEst.getEstadosQ().size(); k++)
-                this.caminos.add(cadAux+"->q"+this.conjuntosEst.getEstadosQ().get(k));
+                this.caminos.add(cadAux+this.conjuntosEst.getEstadosQ().get(k));
     }
     
     private void mandarRuta() throws IOException
@@ -96,9 +96,9 @@ public class AutomataFND {
     }
     
     // para determinar que camino tomar sin interrumpir al otra piza
-    public void imprimirCamino()
+    public void imprimirCamino() throws IOException
     {
         for(int i = 0; i<this.caminos.size(); i++)
-            System.out.println(caminos.get(i));
+            this.archivoRutas.escribirArchivo(caminos.get(i)+"\n");
     }
 }
