@@ -8,14 +8,14 @@ package practica4.chess.Models;
  */
 public class EstadoActual {
     private int estadoActual;
-    private int estadoAnterior;
     private boolean isValida;
+    private int estadoValido;
     
-    public EstadoActual(int estadoActual)
+    public EstadoActual(int estadoActual,int estadoValido)
     {
         this.isValida = false;
         this.estadoActual = estadoActual;
-        this.estadoAnterior = estadoAnterior;
+        this.estadoValido = estadoValido;
     }
 
     public int getEstadoActual() {
@@ -26,20 +26,20 @@ public class EstadoActual {
         this.estadoActual = estadoActual;
     }
 
-    public int getEstadoAnterior() {
-        return estadoAnterior;
-    }
-
-    public void setEstadoAnterior(int estadoAnterior) {
-        this.estadoAnterior = estadoAnterior;
-    }
-
     public boolean isIsValida() {
         return isValida;
     }
 
     public void setIsValida(boolean isValida) {
         this.isValida = isValida;
+    }
+
+    public int getEstadoValido() {
+        return estadoValido;
+    }
+
+    public void setEstadoValido(int estadoValido) {
+        this.estadoValido = estadoValido;
     }
     
 }

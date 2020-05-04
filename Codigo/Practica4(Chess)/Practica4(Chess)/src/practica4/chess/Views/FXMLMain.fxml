@@ -132,5 +132,10 @@
       <Button fx:id="btnAnim2A" disable="true" layoutX="748.0" layoutY="605.0" mnemonicParsing="false" onAction="#iniciarAnimA2" prefHeight="26.0" prefWidth="166.0" text="Iniciar Animacion" />
       <Button fx:id="btnGenRutasA1" layoutX="36.0" layoutY="200.0" mnemonicParsing="false" onAction="#generarRutasA1" prefHeight="26.0" prefWidth="149.0" text="Generar Rutas" />
       <Button fx:id="btnAnimacionA1A2" layoutX="508.0" layoutY="605.0" mnemonicParsing="false" onAction="#iniciarAmbasAnim" prefHeight="26.0" prefWidth="158.0" text="Iniciar ambas animaciones" />
+      <Text layoutX="390.0" layoutY="104.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B: Blanco      N:Negro" wrappingWidth="165.52148437499977">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

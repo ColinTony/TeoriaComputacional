@@ -1,14 +1,17 @@
 package practica4.chess.Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import practica4.chess.Models.Pieza;
 
 public class FXMLMainController {
@@ -46,15 +49,47 @@ public class FXMLMainController {
     private Pieza pieza1AObj;
     private Pieza pieza2AObj;
     
+    // automatas
+    private AutomataFND automata1;
+    private AutomataFND automata2;
+    
     // funciones para el funcionamiento del automata.
     @FXML
-    void GenerarRutasA2(ActionEvent event) {
-
+    void GenerarRutasA2(ActionEvent event) throws IOException {
+        
+        // determinamos si no esta vacio el texto del TextField para automata 1
+        if(!txtCadenaA2.getText().isEmpty())
+        {
+            // si no esta vacio
+            // convertimos el texto a mayusculas
+            // se inicializa empezando en 1 y terminando en 9 como estado valido
+            this.automata2 = new AutomataFND(4,13,"automata2", txtCadenaA2.getText().toString().trim().toUpperCase());
+            this.automata2.evaluarCadena();
+            this.automata2.guardarRutas(this.areaTxtA2); // se guardan las rutas en el archivo
+            // habilitamos su boton para iniciar la animacion
+            this.btnAnim2A.setDisable(false);
+        }
+        else// si esta vacio el texto
+            alerta("!ERROR¡", "Debes escribir una cadena para el automata 2");
+        
     }
 
     @FXML
-    void generarRutasA1(ActionEvent event) {
-
+    void generarRutasA1(ActionEvent event) throws IOException {
+        // determinamos si no esta vacio el texto del TextField para automata 1
+        if(!txtCadenaA1.getText().isEmpty())
+        {
+            // si no esta vacio
+            // convertimos el texto a mayusculas
+            // se inicializa empezando en 1 y terminando en 9 como estado valido
+            this.automata1 = new AutomataFND(1,16,"automata1", txtCadenaA1.getText().toString().trim().toUpperCase());
+            this.automata1.evaluarCadena();
+            this.automata1.guardarRutas(this.areaTxtA1); // se guardan las rutas en el archivo
+            // habilitamos su boton para iniciar la animacion
+            this.btnAnim1A.setDisable(false);
+        }
+        else// si esta vacio el texto
+            alerta("!ERROR¡", "Debes escribir una cadena para el automata 1");
     }
 
     @FXML
@@ -69,7 +104,7 @@ public class FXMLMainController {
 
     @FXML
     void iniciarAnimA2(ActionEvent event) {
-
+        
     }
 
     @FXML
@@ -89,5 +124,16 @@ public class FXMLMainController {
         // la clase Pieza
         this.pieza1AObj = new Pieza(this.pieza1);
         this.pieza2AObj = new Pieza(this.pieza2);
+    }
+    
+    // funcion para mostrar alerta de digalogo
+    public void alerta(String titulo,String contenido)
+    {
+        Alert dialogAlert = new Alert(Alert.AlertType.ERROR); // creamos el dialogo de alreta
+        dialogAlert.setTitle(titulo);
+        dialogAlert.setContentText(contenido);
+        dialogAlert.setHeaderText(null);
+        dialogAlert.initStyle(StageStyle.UTILITY);
+        dialogAlert.showAndWait();
     }
 }

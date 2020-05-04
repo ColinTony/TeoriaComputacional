@@ -41,4 +41,12 @@ public class ArchivoRutas {
         this.bw.write(contenido);
         this.bw.close();
     }
+    
+    public void borrarContenido() throws IOException
+    {
+        this.fw = new FileWriter(this.file);
+        this.bw = new BufferedWriter(fw);
+        this.bw.write("");
+        this.bw.close();
+    }
 }

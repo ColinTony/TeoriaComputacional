@@ -2,6 +2,7 @@ package practica4.chess.Controllers;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import javafx.scene.control.TextArea;
 import practica4.chess.Models.EstadoActual;
 import practica4.chess.Models.Estados;
 import practica4.chess.Models.TablaTR;
@@ -17,14 +18,16 @@ public class AutomataFND {
     private Estados conjuntosEst;
     private ArchivoRutas archivoRutas;
     private ArrayList<String> caminos;
+    private ArrayList<Integer> caminosValidosIndex;
     
-    public AutomataFND(EstadoActual qA, String nameArchivo,String cadena) throws IOException
+    public AutomataFND(int estadoActual,int estadoValido, String nameArchivo,String cadena) throws IOException
     {
         this.caminos = new ArrayList<String>();
-        this.caminos.add("q1");
-        this.qA = qA;
+        this.caminosValidosIndex = new ArrayList<Integer>();
+        this.qA = new EstadoActual(estadoActual,estadoValido);
+        this.caminos.add("q"+this.qA.getEstadoActual());
         this.tablaTransicion = new TablaTR();
-        this.archivoRutas = new ArchivoRutas("Pruebas");
+        this.archivoRutas = new ArchivoRutas(nameArchivo);
         this.conjuntosEst = new Estados();
         this.cadena = cadena;
     }
@@ -47,7 +50,7 @@ public class AutomataFND {
         if(i == 0)
         {
             this.conjuntosEst = tablaTransicion.funcionTransicion(qA, String.valueOf(caracter));
-            mandarRuta();
+            //mandarRuta();
             escribirCaminos(i);
         }else
         {
@@ -56,11 +59,16 @@ public class AutomataFND {
                 // pasamos entre los estados obtenidoss
                 // debemos obtenerlos de los caminos. Es el la ultima posicion
                 // convertirmos a un entero para pasarlo al estado actual
-                
-                String SestadoAux = this.caminos.get(j).substring(this.caminos.get(j).length()-1);
+                String SestadoAux = "";
+                // determinamos si es un caracter de dos cifras el ultimo estado del camino
+                if(Character.isDigit(this.caminos.get(j).charAt(this.caminos.get(j).length()-2)))
+                    SestadoAux = this.caminos.get(j).substring(this.caminos.get(j).length()-2);
+                else
+                    SestadoAux = this.caminos.get(j).substring(this.caminos.get(j).length()-1);
+                // se lo mandamos como nuevo estado actual
                 this.qA.setEstadoActual(Integer.valueOf(SestadoAux));
                 this.conjuntosEst = tablaTransicion.funcionTransicion(qA, String.valueOf(caracter));
-                mandarRuta();
+                //mandarRuta();
                 escribirCaminos(j);
             }
         }
@@ -69,12 +77,12 @@ public class AutomataFND {
     {
         String cadAux;
         cadAux = this.caminos.get(puntoReferencia);
-        
-        this.caminos.set(puntoReferencia, cadAux+this.conjuntosEst.getEstadosQ().get(0));
-        
+
+        this.caminos.set(puntoReferencia, cadAux+"->q"+this.conjuntosEst.getEstadosQ().get(0));
         if(this.conjuntosEst.isMoreOne())
             for(int k = 1; k < this.conjuntosEst.getEstadosQ().size(); k++)
-                this.caminos.add(cadAux+this.conjuntosEst.getEstadosQ().get(k));
+                this.caminos.add(cadAux+"->q"+this.conjuntosEst.getEstadosQ().get(k));
+                
     }
     
     private void mandarRuta() throws IOException
@@ -96,9 +104,28 @@ public class AutomataFND {
     }
     
     // para determinar que camino tomar sin interrumpir al otra piza
-    public void guardarRutas() throws IOException
+    public void guardarRutas(TextArea areaText) throws IOException
     {
-        for(int i = 0; i<this.caminos.size(); i++)
-            this.archivoRutas.escribirArchivo(caminos.get(i)+"\n");
+        areaText.clear(); // limpiamos el textArea
+        this.archivoRutas.borrarContenido(); // borramos tambien el contenido del archivo
+        
+        for(int i = 0; i<this.caminos.size(); i++){
+            // determinamos los caracteres del estado final
+            if(Character.isDigit(this.caminos.get(i).charAt(this.caminos.get(i).length()-2)))
+                this.qA.setIsValida(this.caminos.get(i).substring(this.caminos.get(i).length()-2).equals(String.valueOf(this.qA.getEstadoValido())));
+            else
+                this.qA.setIsValida(this.caminos.get(i).substring(this.caminos.get(i).length()-1).equals(String.valueOf(this.qA.getEstadoValido())));
+            
+            if(this.qA.isIsValida())
+            {
+                this.archivoRutas.escribirArchivo(caminos.get(i)+"*"+"\n");
+                areaText.appendText(this.caminos.get(i)+"*"+"\n");
+            }else
+            {
+                this.archivoRutas.escribirArchivo(caminos.get(i)+"\n");
+                areaText.appendText(this.caminos.get(i)+"\n");
+            }
+        }
+            
     }
 }
