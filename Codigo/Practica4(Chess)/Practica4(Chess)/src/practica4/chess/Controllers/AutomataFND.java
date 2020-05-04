@@ -21,7 +21,7 @@ public class AutomataFND {
     public AutomataFND(EstadoActual qA, String nameArchivo,String cadena) throws IOException
     {
         this.caminos = new ArrayList<String>();
-        this.caminos.add("1");
+        this.caminos.add("q1");
         this.qA = qA;
         this.tablaTransicion = new TablaTR();
         this.archivoRutas = new ArchivoRutas("Pruebas");
@@ -36,39 +36,45 @@ public class AutomataFND {
         for(int i=0; i<this.cadena.toCharArray().length; i++)
         {
             char cadChar = this.cadena.toCharArray()[i];
-            evaluarCaracter(cadChar);
+            evaluarCaracter(cadChar,i);
         }
     }
-    private void evaluarCaracter(char caracter) throws IOException
+    private void evaluarCaracter(char caracter,int i) throws IOException
     {
         // solo nos queda determinar el valor de qA para que tome todos los valores
         // que ha tenido en el conjunto.
-        this.conjuntosEst = tablaTransicion.funcionTransicion(qA, String.valueOf(caracter));
-        escribirCaminos();
-    }
-    private void escribirCaminos()
-    {
-        if(this.conjuntosEst.isMoreOne())
+        int caminosCount= this.caminos.size();
+        if(i == 0)
         {
-            String cadAux; 
-            int limite = this.caminos.size();
-            
-            // escribinedo los cmainos distintos
-            for(int i=0; i<limite; i++)
+            this.conjuntosEst = tablaTransicion.funcionTransicion(qA, String.valueOf(caracter));
+            mandarRuta();
+            escribirCaminos(i);
+        }else
+        {
+            for(int j = 0; j<caminosCount; j++)
             {
-                cadAux = this.caminos.get(i);
-                for(int j = 0; j < this.conjuntosEst.getEstadosQ().size(); j++)
-                {
-                    System.out.println("J value : " + j);
-                    if(j<limite)
-                        this.caminos.set(j,cadAux+this.conjuntosEst.getEstadosQ().get(j));
-                    else
-                        this.caminos.add(cadAux+this.conjuntosEst.getEstadosQ().get(j));     
-                }
+                // pasamos entre los estados obtenidoss
+                // debemos obtenerlos de los caminos. Es el la ultima posicion
+                // convertirmos a un entero para pasarlo al estado actual
+                
+                String SestadoAux = this.caminos.get(j).substring(this.caminos.get(j).length()-1);
+                this.qA.setEstadoActual(Integer.valueOf(SestadoAux));
+                this.conjuntosEst = tablaTransicion.funcionTransicion(qA, String.valueOf(caracter));
+                mandarRuta();
+                escribirCaminos(j);
             }
-        }else{
-            // si solo tinene un estado de respuesta solo lo añadimos a la cadena
         }
+    }
+    private void escribirCaminos(int puntoReferencia)
+    {
+        String cadAux;
+        cadAux = this.caminos.get(puntoReferencia);
+        
+        this.caminos.set(puntoReferencia, cadAux + "->q"+this.conjuntosEst.getEstadosQ().get(0));
+        
+        if(this.conjuntosEst.isMoreOne())
+            for(int k = 1; k < this.conjuntosEst.getEstadosQ().size(); k++)
+                this.caminos.add(cadAux+"->q"+this.conjuntosEst.getEstadosQ().get(k));
     }
     
     private void mandarRuta() throws IOException
@@ -83,18 +89,16 @@ public class AutomataFND {
             // debemos revisar que el estado actual tambien cambie dependiendo de la desicion
             // tomada en la ruta seleccionada.
         }
-        ruta+="]-";
-        System.out.print(ruta);
+        ruta+="],";
+        //System.out.print(ruta);
         
-        //this.archivoRutas.escribirArchivo(ruta);
+        this.archivoRutas.escribirArchivo(ruta);
     }
     
     // para determinar que camino tomar sin interrumpir al otra piza
     public void imprimirCamino()
     {
         for(int i = 0; i<this.caminos.size(); i++)
-        {
-            System.out.println(i+"->"+caminos.get(i));
-        }
+            System.out.println(caminos.get(i));
     }
 }
