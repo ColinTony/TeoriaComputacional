@@ -96,7 +96,7 @@ public class AutomataFND {
     }
     
     // para determinar que camino tomar sin interrumpir al otra piza
-    public void imprimirCamino() throws IOException
+    public void guardarRutas() throws IOException
     {
         for(int i = 0; i<this.caminos.size(); i++)
             this.archivoRutas.escribirArchivo(caminos.get(i)+"\n");
