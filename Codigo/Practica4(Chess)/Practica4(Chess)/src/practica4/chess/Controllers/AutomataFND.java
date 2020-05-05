@@ -3,6 +3,7 @@ package practica4.chess.Controllers;
 import java.io.IOException;
 import java.util.ArrayList;
 import javafx.scene.control.TextArea;
+import practica4.chess.Models.CaminosValidos;
 import practica4.chess.Models.EstadoActual;
 import practica4.chess.Models.Estados;
 import practica4.chess.Models.TablaTR;
@@ -18,12 +19,13 @@ public class AutomataFND {
     private Estados conjuntosEst;
     private ArchivoRutas archivoRutas;
     private ArrayList<String> caminos;
-    private ArrayList<Integer> caminosValidosIndex;
+    private CaminosValidos caminoValido;
+    private ArrayList<CaminosValidos> caminosValidos;
     
     public AutomataFND(int estadoActual,int estadoValido, String nameArchivo,String cadena) throws IOException
     {
         this.caminos = new ArrayList<String>();
-        this.caminosValidosIndex = new ArrayList<Integer>();
+        this.caminosValidos = new ArrayList<CaminosValidos>();
         this.qA = new EstadoActual(estadoActual,estadoValido);
         this.caminos.add("q"+this.qA.getEstadoActual());
         this.tablaTransicion = new TablaTR();
@@ -90,7 +92,7 @@ public class AutomataFND {
     {
         areaText.clear(); // limpiamos el textArea
         this.archivoRutas.borrarContenido(); // borramos tambien el contenido del archivo
-        
+        this.caminosValidos.clear();
         for(int i = 0; i<this.caminos.size(); i++){
             // determinamos los caracteres del estado final
             if(Character.isDigit(this.caminos.get(i).charAt(this.caminos.get(i).length()-2)))
@@ -101,7 +103,10 @@ public class AutomataFND {
             if(this.qA.isIsValida())
             {
                 // guardamos el indice del camino correcto
-                this.caminosValidosIndex.add(i);
+                this.caminoValido = new CaminosValidos();
+                this.caminoValido.setIndexCaminos(i);
+                this.caminoValido.setCaminoValido(this.caminos.get(i));
+                this.caminosValidos.add(this.caminoValido);
                 this.archivoRutas.escribirArchivo(caminos.get(i)+"*"+"\n");
                 areaText.appendText(this.caminos.get(i)+"*"+"\n");
             }else
@@ -112,4 +117,11 @@ public class AutomataFND {
         }
             
     }
+    
+    // getters para los caminos
+
+    public ArrayList<CaminosValidos> getCaminosValidos() {
+        return caminosValidos;
+    }
+    
 }

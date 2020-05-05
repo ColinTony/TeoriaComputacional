@@ -2,7 +2,11 @@ package practica4.chess.Controllers;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,11 +14,15 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import practica4.chess.Models.CaminosValidos;
 import practica4.chess.Models.Pieza;
 
 public class FXMLMainController {
@@ -48,6 +56,19 @@ public class FXMLMainController {
     @FXML
     private Button btnAnimacionA1A2;
     
+    @FXML
+    private TableView<CaminosValidos> tableRutasVA1;
+    @FXML
+    private TableColumn<CaminosValidos, Integer> columnIndexA1;
+    @FXML
+    private TableColumn<CaminosValidos, String> columnRVA1;
+    @FXML
+    private TableView<CaminosValidos> tableRutasVA2;
+    @FXML
+    private TableColumn<CaminosValidos, Integer> columnIndexA2;
+    @FXML
+    private TableColumn<CaminosValidos, String> columnRVA2;
+    
     // variables fuera de la vista
     private Pieza pieza1AObj;
     private Pieza pieza2AObj;
@@ -71,6 +92,8 @@ public class FXMLMainController {
             this.automata2.guardarRutas(this.areaTxtA2); // se guardan las rutas en el archivo
             // habilitamos su boton para iniciar la animacion
             this.btnAnim2A.setDisable(false);
+            // lenamos la tabla
+            this.tableRutasVA2.getItems().setAll(this.automata2.getCaminosValidos());
         }
         else{
             // si esta vacio el texto
@@ -92,6 +115,8 @@ public class FXMLMainController {
             this.automata1.guardarRutas(this.areaTxtA1); // se guardan las rutas en el archivo
             // habilitamos su boton para iniciar la animacion
             this.btnAnim1A.setDisable(false);
+            // llenamos la tabla
+            this.tableRutasVA1.getItems().setAll(this.automata1.getCaminosValidos());
         }
         else{
             // si esta vacio el texto
@@ -138,6 +163,11 @@ public class FXMLMainController {
         // la clase Pieza
         this.pieza1AObj = new Pieza(this.pieza1);
         this.pieza2AObj = new Pieza(this.pieza2);
+        // inicializamos las columnas de las tablas
+        this.columnRVA1.setCellValueFactory(new PropertyValueFactory<>("caminoValido"));
+        this.columnIndexA1.setCellValueFactory(new PropertyValueFactory<>("indexCaminos"));
+        this.columnRVA2.setCellValueFactory(new PropertyValueFactory<>("caminoValido"));
+        this.columnIndexA2.setCellValueFactory(new PropertyValueFactory<>("indexCaminos"));
     }
     
     // funcion para mostrar alerta de digalogo
