@@ -21,41 +21,124 @@ import javafx.util.Duration;
 public class Pieza {
    
     private ImageView imagenPieza;
-    private ArrayList<Integer> posY;
-    private ArrayList<Character> posX;
-    private int posActualX;
-    private int posActualY;
-    private String posCompleta;
-    private int posActualTableroX;
-    private int posActualTableroY;
-            
-    public Pieza(ImageView imagenPieza) {
+    private int posEstActual;
+    private int posX;
+    private int posY;
+    
+    public Pieza(ImageView imagenPieza,int posEstActual) {
         this.imagenPieza = imagenPieza;
-        this.posX = new ArrayList<>(4);
-        this.posY = new ArrayList<>(4);
-        this.posY.add(1);
-        this.posY.add(2);
-        this.posY.add(3);
-        this.posY.add(4);
-        
-        this.posX.add('A');
-        this.posX.add('B');
-        this.posX.add('C');
-        this.posX.add('D');
-        
-        this.posActualX = 0;
-        this.posActualY = 0;
-        
-        this.posCompleta =""+this.posX.get(posActualX)+""+ this.posY.get(posActualY).toString().trim();
-       
-        this.imagenPieza.setX(this.imagenPieza.getX());
-        this.imagenPieza.setY(this.imagenPieza.getY());
+        this.posEstActual = posEstActual;
+        this.posX = 0;
+        this.posY = 0;
     }
-    public String getPosCompleta()
+    //
+    public void moverX(boolean isReverse)
     {
-        this.posCompleta =""+this.posX.get(posActualX)+""+ this.posY.get(posActualY).toString().trim();
-        return this.posCompleta;
+        if(isReverse){
+            this.posEstActual--;
+            this.posX -= 115;
+            this.imagenPieza.setX(this.posX);
+        }
+        else{
+            this.posEstActual++;
+            this.posX += 115;
+            this.imagenPieza.setX(this.posX);
+        }
+        this.posEstActual = Math.abs(posEstActual);
     }
+    
+    public void moverY(boolean isReverse)
+    {
+        if(isReverse){
+            this.posEstActual-=4;
+            this.posY -=115;
+            this.imagenPieza.setY(this.posY);
+        }else{
+            this.posEstActual+=4;
+            this.posY+=115;
+            this.imagenPieza.setY(this.posY);
+        }
+        this.posEstActual = Math.abs(posEstActual);
+    }
+    
+    public void diagonalArriba(boolean isReverse)
+    {
+        if(isReverse){
+            this.posEstActual+=3;
+            this.posX -= 115;
+            this.posY += 115;
+            this.imagenPieza.setX(this.posX);
+            this.imagenPieza.setY(this.posY);
+        }else
+        {
+            this.posEstActual-=3;
+            this.posX += 115;
+            this.posY -= 115;
+            this.imagenPieza.setX(this.posX);
+            this.imagenPieza.setY(this.posY);
+        }        
+        this.posEstActual = Math.abs(posEstActual);
+    }
+    public void diagonalAbajo(boolean isReverse)
+    {
+        if(isReverse)
+        {
+            this.moverX(true);
+            this.moverY(true);
+        }else
+        {
+            this.moverX(false);
+            this.moverY(false);
+        }
+        this.posEstActual = Math.abs(posEstActual);
+    }
+    // restamos la posicion actual con la nueva y dependiendo el valor
+    // es el movimiento que haremos el movimiento de la pieza
+    public void moverPieza(int posNueva)
+    {
+       int movimiento = this.posEstActual-posNueva;
+       switch(movimiento)
+       {
+            case 5:
+                // si la diferencia es 5 es un movimiento diagonal abajo hacia atras
+                this.diagonalAbajo(true);
+                break;
+            case 4:
+                // si la diferencia es 4 es solo subir en el tablero
+                this.moverY(true);
+                break;
+            case 3:
+                // si la diferencia es 3 es diagonal arriba
+                this.diagonalArriba(false);
+                break;
+            case 1:
+                // si la diferencia es uno entonces nos regresamos una posicion
+                this.moverX(true);
+                break;
+            case -1:
+                // menos uno es movernos en X hacia delante
+                this.moverX(false);
+                break;
+            case -3:
+                // diagonal arriba hacia atras
+                this.diagonalArriba(true);
+                break;
+            case -4:
+                // es bajar en el tablero
+                this.moverY(false);
+                break;
+            case -5:
+                // diagonal abajo 
+                this.diagonalAbajo(false);
+                break;
+            default:
+                // se queda en el mismo lugar
+                break;
+       }
+       System.out.println(this.posEstActual);
+    }
+    
+    /*
     // funciones de movimiento
     public void moverX(boolean izq) throws InterruptedException
     {
@@ -101,22 +184,6 @@ public class Pieza {
         translateTransition.play();
         
     }
-
-    public int getPosActualTableroX() {
-        return posActualTableroX;
-    }
-
-    public void setPosActualTableroX(int posActualTableroX) {
-        this.posActualTableroX = posActualTableroX;
-    }
-
-    public int getPosActualTableroY() {
-        return posActualTableroY;
-    }
-
-    public void setPosActualTableroY(int posActualTableroY) {
-        this.posActualTableroY = posActualTableroY;
-    }
     
-    
+    */
 }

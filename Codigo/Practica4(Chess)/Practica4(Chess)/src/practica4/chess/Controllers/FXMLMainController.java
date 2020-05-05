@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -27,8 +28,6 @@ import practica4.chess.Models.Pieza;
 
 public class FXMLMainController {
 
-    @FXML
-    private ResourceBundle resources;
     @FXML
     private Button btnAnim1A;
     @FXML
@@ -53,9 +52,7 @@ public class FXMLMainController {
     private Button btnAnim2A;
     @FXML
     private Button btnGenRutasA1;
-    @FXML
-    private Button btnAnimacionA1A2;
-    
+
     @FXML
     private TableView<CaminosValidos> tableRutasVA1;
     @FXML
@@ -94,6 +91,8 @@ public class FXMLMainController {
             this.btnAnim2A.setDisable(false);
             // lenamos la tabla
             this.tableRutasVA2.getItems().setAll(this.automata2.getCaminosValidos());
+            this.tableRutasVA2.getSelectionModel().select(0);
+            this.tableRutasVA2.getSelectionModel().focus(0);
         }
         else{
             // si esta vacio el texto
@@ -126,11 +125,6 @@ public class FXMLMainController {
     }
 
     @FXML
-    void iniciarAmbasAnim(ActionEvent event){
-        
-    }
-
-    @FXML
     void iniciarAnimA1(ActionEvent event) throws IOException {
         // cheamos los caminos validos
         Parent root = FXMLLoader.load(this.getClass().getResource("/practica4/chess/Views/FXMLMensaje.fxml"));
@@ -148,7 +142,7 @@ public class FXMLMainController {
 
     @FXML
     void reiniciar(ActionEvent event) {
-        
+        System.out.println("Reinicia");
     }
 
     @FXML
@@ -161,13 +155,15 @@ public class FXMLMainController {
     void initialize() {
         // inicializando las piezas y diciendoles cuales son para animarlas con
         // la clase Pieza
-        this.pieza1AObj = new Pieza(this.pieza1);
-        this.pieza2AObj = new Pieza(this.pieza2);
+        this.pieza1AObj = new Pieza(this.pieza1,1);
+        this.pieza2AObj = new Pieza(this.pieza2,4);
         // inicializamos las columnas de las tablas
         this.columnRVA1.setCellValueFactory(new PropertyValueFactory<>("caminoValido"));
         this.columnIndexA1.setCellValueFactory(new PropertyValueFactory<>("indexCaminos"));
         this.columnRVA2.setCellValueFactory(new PropertyValueFactory<>("caminoValido"));
         this.columnIndexA2.setCellValueFactory(new PropertyValueFactory<>("indexCaminos"));
+        this.tableRutasVA1.setPlaceholder(new Label("No hay caminos validos"));
+        this.tableRutasVA2.setPlaceholder(new Label("No hay caminos validos"));
     }
     
     // funcion para mostrar alerta de digalogo
