@@ -85,24 +85,6 @@ public class AutomataFND {
                 
     }
     
-    private void mandarRuta() throws IOException
-    {
-        
-        String ruta="[";
-        // aqui debemos escribir el algoritmo para todas las rutas
-        for(int i = 0; i<this.conjuntosEst.getEstadosQ().size(); i++)
-        {
-            ruta += "q"+conjuntosEst.getEstadosQ().get(i).toString()+",";
-            // para determinar mas rutas debemos analizar el tamaño de los conjuntos
-            // debemos revisar que el estado actual tambien cambie dependiendo de la desicion
-            // tomada en la ruta seleccionada.
-        }
-        ruta+="],";
-        //System.out.print(ruta);
-        
-        this.archivoRutas.escribirArchivo(ruta);
-    }
-    
     // para determinar que camino tomar sin interrumpir al otra piza
     public void guardarRutas(TextArea areaText) throws IOException
     {
@@ -118,6 +100,8 @@ public class AutomataFND {
             
             if(this.qA.isIsValida())
             {
+                // guardamos el indice del camino correcto
+                this.caminosValidosIndex.add(i);
                 this.archivoRutas.escribirArchivo(caminos.get(i)+"*"+"\n");
                 areaText.appendText(this.caminos.get(i)+"*"+"\n");
             }else

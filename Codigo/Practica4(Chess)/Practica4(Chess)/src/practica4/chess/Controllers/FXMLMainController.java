@@ -5,6 +5,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -69,9 +72,11 @@ public class FXMLMainController {
             // habilitamos su boton para iniciar la animacion
             this.btnAnim2A.setDisable(false);
         }
-        else// si esta vacio el texto
+        else{
+            // si esta vacio el texto
+            btnAnim2A.setDisable(true);
             alerta("!ERROR¡", "Debes escribir una cadena para el automata 2");
-        
+        }
     }
 
     @FXML
@@ -88,18 +93,27 @@ public class FXMLMainController {
             // habilitamos su boton para iniciar la animacion
             this.btnAnim1A.setDisable(false);
         }
-        else// si esta vacio el texto
+        else{
+            // si esta vacio el texto
+            btnAnim1A.setDisable(true);
             alerta("!ERROR¡", "Debes escribir una cadena para el automata 1");
+        }
     }
 
     @FXML
-    void iniciarAmbasAnim(ActionEvent event) {
-
+    void iniciarAmbasAnim(ActionEvent event){
+        
     }
 
     @FXML
-    void iniciarAnimA1(ActionEvent event) {
-
+    void iniciarAnimA1(ActionEvent event) throws IOException {
+        // cheamos los caminos validos
+        Parent root = FXMLLoader.load(this.getClass().getResource("/practica4/chess/Views/FXMLMensaje.fxml"));
+        // asignamos la escena
+        Scene scene = new Scene(root);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.show();
     }
 
     @FXML
@@ -109,7 +123,7 @@ public class FXMLMainController {
 
     @FXML
     void reiniciar(ActionEvent event) {
-
+        
     }
 
     @FXML
