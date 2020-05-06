@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import javafx.animation.SequentialTransition;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -52,7 +53,13 @@ public class FXMLMainController {
     private Button btnAnim2A;
     @FXML
     private Button btnGenRutasA1;
-
+    @FXML
+    private Button bntVerRutaA1;
+    @FXML
+    private Button btnVerRutaA2;
+    @FXML
+    private Button btnAmbasAnim;
+    
     @FXML
     private TableView<CaminosValidos> tableRutasVA1;
     @FXML
@@ -91,8 +98,15 @@ public class FXMLMainController {
             this.btnAnim2A.setDisable(false);
             // lenamos la tabla
             this.tableRutasVA2.getItems().setAll(this.automata2.getCaminosValidos());
-            this.tableRutasVA2.getSelectionModel().select(0);
-            this.tableRutasVA2.getSelectionModel().focus(0);
+            if(!this.tableRutasVA2.getItems().isEmpty())
+            {
+                // si no hay rutas validas
+                this.tableRutasVA2.getSelectionModel().select(0);
+                this.tableRutasVA2.getSelectionModel().focus(0);
+                this.btnAnim2A.setDisable(false);
+                this.btnVerRutaA2.setDisable(false);
+            }else
+                alerta("NO HAY RUTAS", "La cadena ingresada no tiene una ruta valida");
         }
         else{
             // si esta vacio el texto
@@ -112,10 +126,19 @@ public class FXMLMainController {
             this.automata1 = new AutomataFND(1,16,"automata1", txtCadenaA1.getText().toString().trim().toUpperCase());
             this.automata1.evaluarCadena();
             this.automata1.guardarRutas(this.areaTxtA1); // se guardan las rutas en el archivo
-            // habilitamos su boton para iniciar la animacion
-            this.btnAnim1A.setDisable(false);
+            
             // llenamos la tabla
             this.tableRutasVA1.getItems().setAll(this.automata1.getCaminosValidos());
+            if(!this.tableRutasVA1.getItems().isEmpty())
+            {
+                // si hay rutas validas
+                this.tableRutasVA1.getSelectionModel().select(0);
+                this.tableRutasVA1.getSelectionModel().focus(0);
+                // habilitamos su boton para iniciar la animacion
+                this.btnAnim1A.setDisable(false);
+                this.bntVerRutaA1.setDisable(false);
+            }else
+                alerta("NO HAY RUTAS", "La cadena ingresada no tiene una ruta valida");
         }
         else{
             // si esta vacio el texto
@@ -125,24 +148,72 @@ public class FXMLMainController {
     }
 
     @FXML
-    void iniciarAnimA1(ActionEvent event) throws IOException {
-        // cheamos los caminos validos
-        Parent root = FXMLLoader.load(this.getClass().getResource("/practica4/chess/Views/FXMLMensaje.fxml"));
-        // asignamos la escena
-        Scene scene = new Scene(root);
-        Stage stage = new Stage();
-        stage.setScene(scene);
-        stage.show();
+    void iniciarAnimA1(ActionEvent event) throws IOException, InterruptedException {
+        
+        CaminosValidos camino = this.tableRutasVA1.getSelectionModel().getSelectedItem();
+        // se elige una animacion
+        this.pieza1AObj.cargarAnimacion(camino.getCaminoValido());
+        this.pieza1AObj.iniciarAnimacion();
     }
 
     @FXML
-    void iniciarAnimA2(ActionEvent event) {
+    void iniciarAnimA2(ActionEvent event) throws InterruptedException {
+        CaminosValidos camino2 = this.tableRutasVA2.getSelectionModel().getSelectedItem();
+        this.pieza2AObj.cargarAnimacion(camino2.getCaminoValido());
+        this.pieza2AObj.iniciarAnimacion();
+    }
+    
+    @FXML
+    void animA1A2(ActionEvent event) throws InterruptedException {
+        SequentialTransition sq = new SequentialTransition();
+        CaminosValidos caminos = this.tableRutasVA1.getSelectionModel().getSelectedItem();
+        CaminosValidos caminos2 = this.tableRutasVA2.getSelectionModel().getSelectedItem();
+            
+        this.pieza1AObj.cargarAnimacion(caminos.getCaminoValido());
+        this.pieza2AObj.cargarAnimacion(caminos2.getCaminoValido());
+        
+        int sizeA1= this.pieza1AObj.getAnimSecuencia().getChildren().size();
+        int sizeA2 =this.pieza2AObj.getAnimSecuencia().getChildren().size();
+        System.out.println(sizeA1 +"-"+sizeA2);
+        
+        if(this.btnAnim1A.isDisable() || this.btnAnim2A.isDisable())
+            alerta("Error", "Una de las cadenas no es correcta");
+        else
+        {
+            if(sizeA1>=sizeA2)   // cual tiene mas animaciones
+            {
+                for(int i=0; i<sizeA1; i++)
+                {
+                    sq.getChildren().add(this.pieza1AObj.getAnimSecuencia().getChildren().get(i));
+                    if(i<sizeA2)
+                    {
+                        sq.getChildren().add(this.pieza2AObj.getAnimSecuencia().getChildren().get(i));
+                    }
+                }
+            }
+            if(sizeA1<sizeA2)   // cual tiene mas animaicones
+            {
+                for(int i = 0; i<sizeA2; i++)
+                {
+                    sq.getChildren().add(this.pieza2AObj.getAnimSecuencia().getChildren().get(i));
+                    if(i<sizeA1)
+                    {
+                        sq.getChildren().add(this.pieza1AObj.getAnimSecuencia().getChildren().get(i));
+                    }
+                }
+            }
+            System.out.println("entra");
+            sq.play();
+        }
         
     }
 
     @FXML
-    void reiniciar(ActionEvent event) {
-        System.out.println("Reinicia");
+    void reiniciar(ActionEvent event) throws InterruptedException, IOException {
+        this.pieza1AObj.reiniciar();
+        this.pieza2AObj.reiniciar();
+        this.pieza1AObj = new Pieza(pieza1, 1);
+        this.pieza2AObj = new Pieza(pieza2, 4);
     }
 
     @FXML
@@ -151,6 +222,26 @@ public class FXMLMainController {
         stageActual.close();
     }
 
+    @FXML
+    void verRutaA1(ActionEvent event) {
+        Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION); // creamos el dialogo de alreta
+        dialogAlert.setTitle("RUTA ELEGIDA");
+        dialogAlert.setContentText(this.tableRutasVA1.getSelectionModel().getSelectedItem().getCaminoValido());
+        dialogAlert.setHeaderText(null);
+        dialogAlert.initStyle(StageStyle.UTILITY);
+        dialogAlert.showAndWait();
+    }
+    
+    @FXML
+    void verRutaA2(ActionEvent event) {
+        Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION); // creamos el dialogo de alreta
+        dialogAlert.setTitle("RUTA ELEGIDA");
+        dialogAlert.setContentText(this.tableRutasVA2.getSelectionModel().getSelectedItem().getCaminoValido());
+        dialogAlert.setHeaderText(null);
+        dialogAlert.initStyle(StageStyle.UTILITY);
+        dialogAlert.showAndWait();
+    }
+    
     @FXML
     void initialize() {
         // inicializando las piezas y diciendoles cuales son para animarlas con
@@ -176,4 +267,5 @@ public class FXMLMainController {
         dialogAlert.initStyle(StageStyle.UTILITY);
         dialogAlert.showAndWait();
     }
+    
 }
