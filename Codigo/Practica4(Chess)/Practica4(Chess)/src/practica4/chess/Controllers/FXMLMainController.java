@@ -165,44 +165,35 @@ public class FXMLMainController {
     
     @FXML
     void animA1A2(ActionEvent event) throws InterruptedException {
-        SequentialTransition sq = new SequentialTransition();
-        CaminosValidos caminos = this.tableRutasVA1.getSelectionModel().getSelectedItem();
-        CaminosValidos caminos2 = this.tableRutasVA2.getSelectionModel().getSelectedItem();
-            
-        this.pieza1AObj.cargarAnimacion(caminos.getCaminoValido());
-        this.pieza2AObj.cargarAnimacion(caminos2.getCaminoValido());
-        
-        int sizeA1= this.pieza1AObj.getAnimSecuencia().getChildren().size();
-        int sizeA2 =this.pieza2AObj.getAnimSecuencia().getChildren().size();
-        System.out.println(sizeA1 +"-"+sizeA2);
         
         if(this.btnAnim1A.isDisable() || this.btnAnim2A.isDisable())
             alerta("Error", "Una de las cadenas no es correcta");
         else
         {
+            SequentialTransition sq = new SequentialTransition();
+            CaminosValidos caminos = this.tableRutasVA1.getSelectionModel().getSelectedItem();
+            CaminosValidos caminos2 = this.tableRutasVA2.getSelectionModel().getSelectedItem();
+
+            this.pieza1AObj.cargarAnimacion(caminos.getCaminoValido());
+            this.pieza2AObj.cargarAnimacion(caminos2.getCaminoValido());
+
+            int sizeA1= this.pieza1AObj.getAnimSecuencia().getChildren().size();
+            int sizeA2 =this.pieza2AObj.getAnimSecuencia().getChildren().size();
             if(sizeA1>=sizeA2)   // cual tiene mas animaciones
-            {
                 for(int i=0; i<sizeA1; i++)
                 {
                     sq.getChildren().add(this.pieza1AObj.getAnimSecuencia().getChildren().get(i));
                     if(i<sizeA2)
-                    {
                         sq.getChildren().add(this.pieza2AObj.getAnimSecuencia().getChildren().get(i));
-                    }
                 }
-            }
             if(sizeA1<sizeA2)   // cual tiene mas animaicones
-            {
                 for(int i = 0; i<sizeA2; i++)
                 {
                     sq.getChildren().add(this.pieza2AObj.getAnimSecuencia().getChildren().get(i));
                     if(i<sizeA1)
-                    {
                         sq.getChildren().add(this.pieza1AObj.getAnimSecuencia().getChildren().get(i));
-                    }
                 }
-            }
-            System.out.println("entra");
+            
             sq.play();
         }
         
