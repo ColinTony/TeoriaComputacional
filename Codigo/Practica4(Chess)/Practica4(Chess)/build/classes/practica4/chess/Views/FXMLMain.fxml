@@ -156,5 +156,85 @@
       <Button fx:id="bntVerRutaA1" disable="true" layoutX="27.0" layoutY="591.0" mnemonicParsing="false" onAction="#verRutaA1" prefHeight="26.0" prefWidth="166.0" text="Ver ruta completa" />
       <Button fx:id="btnVerRutaA2" disable="true" layoutX="748.0" layoutY="591.0" mnemonicParsing="false" onAction="#verRutaA2" prefHeight="26.0" prefWidth="166.0" text="Ver ruta completa" />
       <Button fx:id="btnAmbasAnim" layoutX="375.0" layoutY="604.0" mnemonicParsing="false" onAction="#animA1A2" prefHeight="26.0" prefWidth="200.0" text="Iniciar ambas animaciones" />
+      <Text layoutX="347.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#e8dddd" layoutX="464.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#e8dddd" layoutX="683.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="4">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#e8dddd" layoutX="351.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="5">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#e8dddd" layoutX="570.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="7">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#e8dddd" layoutX="683.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="12">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#e8dddd" layoutX="455.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="10">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#e8dddd" layoutX="343.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="13">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text fill="#e8dddd" layoutX="566.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="15">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="464.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="6">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="574.0" layoutY="157.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="687.0" layoutY="270.0" strokeType="OUTSIDE" strokeWidth="0.0" text="8">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="347.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="9">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="565.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="11">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="455.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="14">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="678.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="16">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
