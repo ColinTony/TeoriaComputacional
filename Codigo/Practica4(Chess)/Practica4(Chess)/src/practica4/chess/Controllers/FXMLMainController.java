@@ -3,6 +3,7 @@ package practica4.chess.Controllers;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.ResourceBundle;
 import javafx.animation.SequentialTransition;
 import javafx.beans.property.SimpleStringProperty;
@@ -16,6 +17,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Spinner;
+import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
@@ -59,6 +62,10 @@ public class FXMLMainController {
     private Button btnVerRutaA2;
     @FXML
     private Button btnAmbasAnim;
+    @FXML
+    private Spinner<Integer> spinerNumber;
+    @FXML
+    private Button btnGenerarCadenas;
     
     @FXML
     private TableView<CaminosValidos> tableRutasVA1;
@@ -234,6 +241,36 @@ public class FXMLMainController {
     }
     
     @FXML
+    void generarCadenas(ActionEvent event) {
+        int azar =0;
+        Random r = new Random();
+        int maxCad = Integer.valueOf(this.spinerNumber.getEditor().getText());
+        String nuevaCad = "";
+        if(maxCad>0){
+            for(int j=0; j<2; j++)
+            {
+                for(int i = 0; i<maxCad; i++)
+                {
+                    azar = r.nextInt(2);
+                    System.out.println(azar);
+                    if(azar == 1)
+                        nuevaCad += "N";
+                    else
+                        nuevaCad += "B";
+                }
+                
+                if(j == 0)
+                    this.txtCadenaA1.setText(nuevaCad);
+                else
+                    this.txtCadenaA2.setText(nuevaCad);
+                nuevaCad = "";
+            }
+        }
+        else
+            alerta("ERROR", "Debes elegir una cadena mayor a 0");
+    }
+    
+    @FXML
     void initialize() {
         // inicializando las piezas y diciendoles cuales son para animarlas con
         // la clase Pieza
@@ -246,6 +283,8 @@ public class FXMLMainController {
         this.columnIndexA2.setCellValueFactory(new PropertyValueFactory<>("indexCaminos"));
         this.tableRutasVA1.setPlaceholder(new Label("No hay caminos validos"));
         this.tableRutasVA2.setPlaceholder(new Label("No hay caminos validos"));
+        SpinnerValueFactory<Integer> valuesFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 15, 0);
+        this.spinerNumber.setValueFactory(valuesFactory);
     }
     
     // funcion para mostrar alerta de digalogo

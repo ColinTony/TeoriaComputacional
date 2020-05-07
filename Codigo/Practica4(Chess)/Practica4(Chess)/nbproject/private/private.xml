@@ -5,10 +5,10 @@
         <group>
             <file>file:/C:/Users/colin/Documents/ESCOM/SemestreActual/TeoriaComputacional/Practicas/Codigo/Practica4(Chess)/Practica4(Chess)/src/practica4/chess/Models/Estados.java</file>
             <file>file:/C:/Users/colin/Documents/ESCOM/SemestreActual/TeoriaComputacional/Practicas/Codigo/Practica4(Chess)/Practica4(Chess)/src/practica4/chess/Models/TablaTR.java</file>
-            <file>file:/C:/Users/colin/Documents/ESCOM/SemestreActual/TeoriaComputacional/Practicas/Codigo/Practica4(Chess)/Practica4(Chess)/src/practica4/chess/Controllers/FXMLMensajeController.java</file>
             <file>file:/C:/Users/colin/Documents/ESCOM/SemestreActual/TeoriaComputacional/Practicas/Codigo/Practica4(Chess)/Practica4(Chess)/src/practica4/chess/Controllers/ArchivoRutas.java</file>
             <file>file:/C:/Users/colin/Documents/ESCOM/SemestreActual/TeoriaComputacional/Practicas/Codigo/Practica4(Chess)/Practica4(Chess)/src/practica4/chess/Models/Pieza.java</file>
             <file>file:/C:/Users/colin/Documents/ESCOM/SemestreActual/TeoriaComputacional/Practicas/Codigo/Practica4(Chess)/Practica4(Chess)/src/practica4/chess/Controllers/AutomataFND.java</file>
+            <file>file:/C:/Users/colin/Documents/ESCOM/SemestreActual/TeoriaComputacional/Practicas/Codigo/Practica4(Chess)/Practica4(Chess)/src/practica4/chess/Models/CaminosValidos.java</file>
             <file>file:/C:/Users/colin/Documents/ESCOM/SemestreActual/TeoriaComputacional/Practicas/Codigo/Practica4(Chess)/Practica4(Chess)/src/practica4/chess/Models/EstadoActual.java</file>
             <file>file:/C:/Users/colin/Documents/ESCOM/SemestreActual/TeoriaComputacional/Practicas/Codigo/Practica4(Chess)/Practica4(Chess)/src/practica4/chess/Controllers/FXMLMainController.java</file>
         </group>
