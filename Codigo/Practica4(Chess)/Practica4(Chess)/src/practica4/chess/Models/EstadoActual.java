@@ -3,14 +3,14 @@ package practica4.chess.Models;
 /**
  *
  * @author colin
- * Esta clase va a registar el estado actual de un automata
- * teniendo como valroes el inicio, anterior y saber si es un estado valido
+ * Esta clase va a registar el estado actual de un automata y si es valida
  */
 public class EstadoActual {
     private int estadoActual;
     private boolean isValida;
     private int estadoValido;
     
+    // constructor
     public EstadoActual(int estadoActual,int estadoValido)
     {
         this.isValida = false;

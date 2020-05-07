@@ -29,9 +29,13 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import practica4.chess.Models.CaminosValidos;
 import practica4.chess.Models.Pieza;
-
+/*
+    Esta clase es la comunicacion entre la vista y el automata
+    Toda la vista llama al controlador AutomataFND Finito no determinista
+*/
 public class FXMLMainController {
-
+    
+    // botones y elementos de la vista---------------
     @FXML
     private Button btnAnim1A;
     @FXML
@@ -79,6 +83,7 @@ public class FXMLMainController {
     private TableColumn<CaminosValidos, Integer> columnIndexA2;
     @FXML
     private TableColumn<CaminosValidos, String> columnRVA2;
+    //------------------------------------------------
     
     // variables fuera de la vista
     private Pieza pieza1AObj;
@@ -88,7 +93,11 @@ public class FXMLMainController {
     private AutomataFND automata1;
     private AutomataFND automata2;
     
-    // funciones para el funcionamiento del automata.
+    // Esta funcion inicializa el automata, manda la cadena dentro del 
+    // txtCadena y llama a la funcion importante que es la de evaluar la cadena
+    // se manda el areaTex a guardar rutas para llenar con datos el textArea
+    // se llaman a los estados validos y si estan vacios signfica
+    // que no es una cadena valida.
     @FXML
     void GenerarRutasA2(ActionEvent event) throws IOException {
         
@@ -97,7 +106,8 @@ public class FXMLMainController {
         {
             // si no esta vacio
             // convertimos el texto a mayusculas
-            // se inicializa empezando en 1 y terminando en 9 como estado valido
+            // se inicializa empezando en 4 y terminando en 13 como estado valido
+            // se pueden cambiar los estados iniciales y finales
             this.automata2 = new AutomataFND(4,13,"automata2", txtCadenaA2.getText().toString().trim().toUpperCase());
             this.automata2.evaluarCadena();
             this.automata2.guardarRutas(this.areaTxtA2); // se guardan las rutas en el archivo
@@ -121,7 +131,11 @@ public class FXMLMainController {
             alerta("!ERROR¡", "Debes escribir una cadena para el automata 2");
         }
     }
-
+     // Esta funcion inicializa el automata, manda la cadena dentro del 
+    // txtCadena y llama a la funcion importante que es la de evaluar la cadena
+    // se manda el areaTex a guardar rutas para llenar con datos el textArea
+    // se llaman a los estados validos y si estan vacios signfica
+    // que no es una cadena valida.
     @FXML
     void generarRutasA1(ActionEvent event) throws IOException {
         // determinamos si no esta vacio el texto del TextField para automata 1
@@ -129,12 +143,12 @@ public class FXMLMainController {
         {
             // si no esta vacio
             // convertimos el texto a mayusculas
-            // se inicializa empezando en 1 y terminando en 9 como estado valido
+            // se inicializa empezando en 1 y terminando en 16 como estado valido
             this.automata1 = new AutomataFND(1,16,"automata1", txtCadenaA1.getText().toString().trim().toUpperCase());
             this.automata1.evaluarCadena();
             this.automata1.guardarRutas(this.areaTxtA1); // se guardan las rutas en el archivo
             
-            // llenamos la tabla
+            // llenamos la tabla de rutas validas
             this.tableRutasVA1.getItems().setAll(this.automata1.getCaminosValidos());
             if(!this.tableRutasVA1.getItems().isEmpty())
             {
@@ -153,7 +167,9 @@ public class FXMLMainController {
             alerta("!ERROR¡", "Debes escribir una cadena para el automata 1");
         }
     }
-
+    // Iniciar una animacion independiente.
+    // Se toma la informacion de la seleccion de la tabla y se la manda a cargar
+    // nuestra animacion despues de cargarla se ejecuta la animacion
     @FXML
     void iniciarAnimA1(ActionEvent event) throws IOException, InterruptedException {
         
@@ -162,14 +178,19 @@ public class FXMLMainController {
         this.pieza1AObj.cargarAnimacion(camino.getCaminoValido());
         this.pieza1AObj.iniciarAnimacion();
     }
-
+    // Iniciar una animacion independiente.
+    // Se toma la informacion de la seleccion de la tabla y se la manda a cargar
+    // nuestra animacion despues de cargarla se ejecuta la animacion
     @FXML
     void iniciarAnimA2(ActionEvent event) throws InterruptedException {
         CaminosValidos camino2 = this.tableRutasVA2.getSelectionModel().getSelectedItem();
         this.pieza2AObj.cargarAnimacion(camino2.getCaminoValido());
         this.pieza2AObj.iniciarAnimacion();
     }
-    
+    // Iniciar una animaciones al mismo tiempo.
+    // Se toma la informacion de la seleccion de la tabla y se la manda a cargar
+    // esta informacion es de cada una de las tablas
+    // se identifica el camino mas grande y ese sera quien se llene al final
     @FXML
     void animA1A2(ActionEvent event) throws InterruptedException {
         
@@ -205,7 +226,7 @@ public class FXMLMainController {
         }
         
     }
-
+    // reinicia los valores para hacerlo de nuevo
     @FXML
     void reiniciar(ActionEvent event) throws InterruptedException, IOException {
         this.pieza1AObj.reiniciar();
@@ -213,13 +234,13 @@ public class FXMLMainController {
         this.pieza1AObj = new Pieza(pieza1, 1);
         this.pieza2AObj = new Pieza(pieza2, 4);
     }
-
+    // cierra la ventana
     @FXML
     void salir(ActionEvent event) {
         Stage stageActual = (Stage)this.btnSalir.getScene().getWindow();
         stageActual.close();
     }
-
+    // mostramos una alerta con la informacion de la ruta
     @FXML
     void verRutaA1(ActionEvent event) {
         Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION); // creamos el dialogo de alreta
@@ -229,7 +250,7 @@ public class FXMLMainController {
         dialogAlert.initStyle(StageStyle.UTILITY);
         dialogAlert.showAndWait();
     }
-    
+    // mostramos una alerta con la informacion de la ruta
     @FXML
     void verRutaA2(ActionEvent event) {
         Alert dialogAlert = new Alert(Alert.AlertType.INFORMATION); // creamos el dialogo de alreta
@@ -239,7 +260,9 @@ public class FXMLMainController {
         dialogAlert.initStyle(StageStyle.UTILITY);
         dialogAlert.showAndWait();
     }
-    
+    // para generar cadenas aleatorias
+    // leemos la cantidad de caracteres y
+    // se hace un random para generar 2 cadenas aleatorias
     @FXML
     void generarCadenas(ActionEvent event) {
         int azar =0;
@@ -270,6 +293,7 @@ public class FXMLMainController {
             alerta("ERROR", "Debes elegir una cadena mayor a 0");
     }
     
+    // inicializamos las vistas y datos
     @FXML
     void initialize() {
         // inicializando las piezas y diciendoles cuales son para animarlas con

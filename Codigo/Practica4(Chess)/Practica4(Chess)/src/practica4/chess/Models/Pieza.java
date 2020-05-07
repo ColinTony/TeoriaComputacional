@@ -19,6 +19,8 @@ import javafx.util.Duration;
 /**
  *
  * @author colin
+ * Este objeto sera quien guarde las animaciones de la pieza
+ * individualmente. Guardara las posiciones
  */
 public class Pieza {
    
@@ -30,6 +32,7 @@ public class Pieza {
     private int posAntoerioY;
     private SequentialTransition animSecuencia;
     
+    // constructor
     public Pieza(ImageView imagenPieza,int posEstActual) {
         this.imagenPieza = imagenPieza;
         this.posEstActual = posEstActual;
@@ -40,7 +43,9 @@ public class Pieza {
         
         this.animSecuencia = new SequentialTransition();
     }
-    //
+    
+    // movimiento de la pieza en x , actualizamos las posiciones y se manda 
+    // a la animacion
     public void moverX(boolean isReverse) throws InterruptedException
     {
         if(isReverse){
@@ -57,7 +62,7 @@ public class Pieza {
         }
         this.posEstActual = Math.abs(posEstActual);
     }
-    
+    // movimiento en Y.
     public void moverY(boolean isReverse) throws InterruptedException
     {
         if(isReverse){
@@ -73,7 +78,7 @@ public class Pieza {
         }
         this.posEstActual = Math.abs(posEstActual);
     }
-    
+    // diagonal hacia arriba
     public void diagonalArriba(boolean isReverse) throws InterruptedException
     {
         if(isReverse){
@@ -94,7 +99,7 @@ public class Pieza {
         }        
         this.posEstActual = Math.abs(posEstActual);
     }
-    
+    // diagonal hacia aabjo
     public void diagonalAbajo(boolean isReverse) throws InterruptedException
     {
         if(isReverse)
@@ -116,6 +121,7 @@ public class Pieza {
         }
         this.posEstActual = Math.abs(posEstActual);
     }
+    
     // restamos la posicion actual con la nueva y dependiendo el valor
     // es el movimiento que haremos el movimiento de la pieza
     public void moverPieza(int posNueva) throws InterruptedException
@@ -159,22 +165,19 @@ public class Pieza {
                 // se queda en el mismo lugar
                 break;
        }
-       System.out.println(this.posEstActual);
+       //System.out.println(this.posEstActual); para ver el movimiento correcto
     }
     
+    // añade un movimiento en X como animacion
     private void addAnim(int posInicial, int posFinal) throws InterruptedException
     {
-        // audio de movimiento
-        //AudioClip audio = new AudioClip(getClass().getResource("/practica4/chess/Views/Assets/sounds/moverP.aiff").toString());
-        //audio.play();
-        
         TranslateTransition movimiento = new TranslateTransition(Duration.millis(1700), imagenPieza);
         movimiento.setFromX(posInicial);
         movimiento.setToX(posFinal);
         
         this.animSecuencia.getChildren().add(movimiento);
     }
-    
+    // añade un movimiento en Y como animacion
     private void addAnimY(int posInicial, int posFinal)
     {
         TranslateTransition movimiento = new TranslateTransition(Duration.millis(1700), imagenPieza);
@@ -182,6 +185,7 @@ public class Pieza {
         movimiento.setToY(posFinal);
         this.animSecuencia.getChildren().add(movimiento);
     }
+    // un movimiento diagonal como animacion
     private void addAnim(int posInicialX, int posFinalX,int posInicialY, int posFinalY) throws InterruptedException
     {
         TranslateTransition movimiento = new TranslateTransition(Duration.millis(1700), imagenPieza);
@@ -192,6 +196,14 @@ public class Pieza {
         
         this.animSecuencia.getChildren().add(movimiento);
     }
+    
+    // este codigo se dedica a dividir la cadena enviada
+    // la cadena nos llega en un formato q1->qx->qy->qz
+    // se quitan las q y los > para quedarnos en una cadena
+    // de tipo x-y-z de ahi se sacan solo los valores
+    // x,y,z. Los cuales seran las posiciones a donde se quiere mover
+    // con ellas se las mandamos a mover pieza quien se encarga de
+    // ir guardando las animaciones para despues reproducirlas
     public void cargarAnimacion(String rutaElegida) throws InterruptedException
     {
         this.animSecuencia = new SequentialTransition();
@@ -214,12 +226,13 @@ public class Pieza {
         // para el ultimo digito encontrado
         moverPieza(Integer.valueOf(valor));
     }
-    
+    // inicia la animacion
     public void iniciarAnimacion()
     {
         this.animSecuencia.play();
     }
     
+    // resetea los valores a los iniciales.
     public void reiniciar()
     {
         this.animSecuencia = new SequentialTransition();
@@ -233,7 +246,8 @@ public class Pieza {
         this.animSecuencia.play();
         
     }
-
+    // devuelve las animaciones guardadas para el uso de 
+    // las animaciones cuando se ejecuten juntas.
     public SequentialTransition getAnimSecuencia() {
         return animSecuencia;
     }

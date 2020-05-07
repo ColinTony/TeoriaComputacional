@@ -11,12 +11,14 @@ import java.util.ArrayList;
 public class Estados {
     private ArrayList<Integer> estadosQ;
     private boolean isMoreOne;
+    
+    // constructor
     public Estados()
     {
         this.estadosQ = new ArrayList<>();
         this.isMoreOne = false;
     }
-
+    // getters and setters
     public ArrayList<Integer> getEstadosQ() {
         return estadosQ;
     }

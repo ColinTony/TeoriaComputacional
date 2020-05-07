@@ -21,6 +21,8 @@ public class ArchivoRutas {
     
     
     // nombre del archivo sin el txt
+    // como constructor se crea un archivo nuevo
+    // dentro de una carpeta ya establecida
     public ArchivoRutas(String nombreArchivo) throws IOException
     {
         this.ruta = "./src/practica4/chess/Controllers/txtRutas/";
@@ -33,7 +35,7 @@ public class ArchivoRutas {
         if(!file.exists())
             file.createNewFile();
     }
-    
+    // escribe el texto en el archivo
     public void escribirArchivo(String contenido) throws IOException
     {
         this.fw = new FileWriter(this.file,true);
@@ -41,12 +43,18 @@ public class ArchivoRutas {
         this.bw.write(contenido);
         this.bw.close();
     }
-    
+    // deja el archivo en blanco
     public void borrarContenido() throws IOException
     {
         this.fw = new FileWriter(this.file);
         this.bw = new BufferedWriter(fw);
         this.bw.write("");
         this.bw.close();
+    }
+    
+    // getter para derivar del nombre un nuevo archivo con rutas validas
+    public String getNameArchivo()
+    {
+        return this.nombreArchivo;
     }
 }

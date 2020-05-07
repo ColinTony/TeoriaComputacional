@@ -12,12 +12,13 @@ import javafx.stage.Stage;
  */
 public class Practica4Chess extends Application {
     
+    //para iniciar la ventana principal de JAVAFX
     @Override
     public void start(Stage stage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("Views/FXMLMain.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Views/FXMLMain.fxml")); // cargamos nuestra vista
         
-        Scene scene = new Scene(root);
-        
+        Scene scene = new Scene(root); // cargamos la scene
+        // se pone el stage y se muestra al usuario
         stage.setScene(scene);
         stage.show();
     }
