@@ -143,7 +143,6 @@ public class AutomataFND {
             }
         }   
     }
-    
     // getters para los caminos
     public ArrayList<CaminosValidos> getCaminosValidos() {
         return caminosValidos;

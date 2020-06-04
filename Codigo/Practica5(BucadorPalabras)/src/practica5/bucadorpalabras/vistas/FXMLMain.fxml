@@ -1,0 +1,404 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Group?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="611.0" prefWidth="815.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/11.0.1" fx:controller="practica5.bucadorpalabras.controladores.FXMLMainController">
+   <children>
+      <Group layoutX="23.0" layoutY="233.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="134.0" layoutY="228.0">
+         <children>
+            <Line endX="44.99998474121094" endY="-1.52587890625E-5" layoutX="-9.0" layoutY="-36.0" startX="-1.52587890625E-5" startY="-1.52587890625E-5" />
+            <Polygon fill="#ff481f" layoutX="46.0" points="-16.200027465820312, -27.79998779296875, -4.2000274658203125, -35.79998779296875, -16.200027465820312, -43.79998779296875" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Group layoutX="97.0" layoutY="361.0">
+         <children>
+            <Line endX="44.99998474121094" endY="-1.52587890625E-5" layoutX="-9.0" layoutY="-36.0" startX="-1.52587890625E-5" startY="-1.52587890625E-5" />
+            <Polygon fill="#ff481f" layoutX="46.0" points="-16.200027465820312, -27.79998779296875, -4.2000274658203125, -35.79998779296875, -16.200027465820312, -43.79998779296875" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Group layoutX="220.0" layoutY="228.0">
+         <children>
+            <Line endX="44.99998474121094" endY="-1.52587890625E-5" layoutX="-9.0" layoutY="-36.0" startX="-1.52587890625E-5" startY="-1.52587890625E-5" />
+            <Polygon fill="#ff481f" layoutX="46.0" points="-16.200027465820312, -27.79998779296875, -4.2000274658203125, -35.79998779296875, -16.200027465820312, -43.79998779296875" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Group layoutX="62.0" layoutY="263.0">
+         <children>
+            <Line endX="40.99998474121094" endY="-23.000015258789062" layoutX="-9.0" layoutY="-36.0" startX="-1.52587890625E-5" startY="-1.52587890625E-5" />
+            <Polygon fill="#ff481f" layoutX="38.0" layoutY="-24.0" points="-5.29290771484375, -23.500015258789062, -4.0, -37.40000915527344, -16.79998779296875, -37.40000915527344" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Group layoutX="51.0" layoutY="307.0">
+         <children>
+            <Line endX="18.653549194335938" endY="37.4000244140625" layoutX="-4.0" layoutY="-52.0" startX="-1.52587890625E-5" startY="-1.52587890625E-5" />
+            <Polygon fill="#ff481f" layoutX="35.0" layoutY="15.0" points="-13.892898559570312, -22.399993896484375, -26.800003051757812, -30.58575439453125, -13.892898559570312, -36.79998779296875" stroke="BLACK" strokeType="INSIDE" />
+         </children>
+      </Group>
+      <Group layoutX="692.0" layoutY="61.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="702.0" layoutY="71.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="10.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="q1">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="190.0" layoutY="105.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="13.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="O">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="173.0" layoutY="186.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="11.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ñ">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="57.0" layoutY="310.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="15.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="B">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+      <Group layoutX="93.0" layoutY="186.0">
+         <children>
+            <Circle fill="DODGERBLUE" layoutX="20.0" layoutY="7.0" radius="17.0" stroke="BLACK" strokeType="INSIDE" />
+            <Text layoutX="15.0" layoutY="13.0" strokeType="OUTSIDE" strokeWidth="0.0" text="A">
+               <font>
+                  <Font name="Comic Sans MS" size="15.0" />
+               </font>
+            </Text>
+         </children>
+      </Group>
+   </children>
+</AnchorPane>
