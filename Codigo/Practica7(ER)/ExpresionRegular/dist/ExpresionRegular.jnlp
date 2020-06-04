@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?><jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="ExpresionRegular.jnlp">
+    <information>
+        <title>ExpresionRegular</title>
+        <vendor>colin</vendor>
+        <description>null</description>
+        <offline-allowed/>
+    </information>
+    <update check="always"/>
+    <resources>
+        <j2se version="9.0.4+" href="http://java.sun.com/products/autodl/j2se"/>
+        <jar href="ExpresionRegular.jar" size="6899" download="eager"/>
+        <jar href="lib\jfoenix-9.0.8.jar" size="2419463" download="eager"/>
+    </resources>
+    <jfx:javafx-desc width="800" height="600" main-class="expresionregular.ExpresionRegular" name="ExpresionRegular"/>
+</jnlp>
+

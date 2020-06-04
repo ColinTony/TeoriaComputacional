@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.effect.Glow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="446.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="expresionregular.FXMLMainController">
+    <children>
+      <Text layoutX="214.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Expresion Regular">
+         <font>
+            <Font name="Blackadder ITC" size="36.0" />
+         </font>
+         <effect>
+            <Glow />
+         </effect>
+      </Text>
+      <Text layoutX="14.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luis Antonio Colin Heredia">
+         <font>
+            <Font name="Toledo Regular" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="598.0" layoutY="423.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ColinTony">
+         <font>
+            <Font name="Toledo Regular" size="12.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="btnGenerarCadenas" buttonType="RAISED" layoutX="278.0" layoutY="329.0" onAction="#generarCadenas" ripplerFill="#fd0000" text="Generar Cadenas">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btnSalir" buttonType="RAISED" layoutX="312.0" layoutY="365.0" onAction="#salir" ripplerFill="#fd0000" text="Salir">
+         <font>
+            <Font name="Comic Sans MS" size="12.0" />
+         </font>
+      </JFXButton>
+      <JFXTextArea fx:id="areaText" editable="false" layoutX="409.0" layoutY="110.0" prefHeight="191.0" prefWidth="215.0">
+         <font>
+            <Font name="Segoe UI Semilight" size="13.0" />
+         </font></JFXTextArea>
+      <JFXTextArea fx:id="areaTextEstados" editable="false" layoutX="5.0" layoutY="110.0" prefHeight="191.0" prefWidth="354.0">
+         <font>
+            <Font name="Segoe UI Semilight" size="13.0" />
+         </font>
+      </JFXTextArea>
+      <Text layoutX="192.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Estados">
+         <font>
+            <Font name="Toledo Regular" size="12.0" />
+         </font>
+      </Text>
+      <Text layoutX="493.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadenas">
+         <font>
+            <Font name="Toledo Regular" size="12.0" />
+         </font>
+      </Text>
+    </children>
+   <cursor>
+      <Cursor fx:constant="OPEN_HAND" />
+   </cursor>
+</AnchorPane>

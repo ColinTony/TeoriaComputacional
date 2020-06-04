@@ -1,0 +1,36 @@
+Generando la cadena: 1
+Entramos a la cerradura 
+Valor a escribir 0 -> se haran 4 copias en la cadena concatenandolas
+Valor a escribir e, como es vacio no lo pondremos.
+Generando la cadena: 2
+Entramos a la cerradura 
+Valor a escribir 0 -> se haran 5 copias en la cadena concatenandolas
+Valor a escribir e, como es vacio no lo pondremos.
+Generando la cadena: 3
+Entramos a la cerradura 
+Valor a escribir 0 -> se haran 4 copias en la cadena concatenandolas
+Valor a escribir e, como es vacio no lo pondremos.
+Generando la cadena: 4
+No entramos a la cerradura se concidera e. 
+Toca el valor 'e' vacio , no lo pondremos en la cadena.
+Generando la cadena: 5
+Entramos a la cerradura 
+Valor a escribir 10 -> se haran 5 copias en la cadena concatenandolas
+Valor a escribir 1 en la cadena.
+Generando la cadena: 6
+No entramos a la cerradura se concidera e. 
+Toca el valor 'e' vacio , no lo pondremos en la cadena.
+Generando la cadena: 7
+Entramos a la cerradura 
+Valor a escribir 0 -> se haran 10 copias en la cadena concatenandolas
+Valor a escribir e, como es vacio no lo pondremos.
+Generando la cadena: 8
+No entramos a la cerradura se concidera e. 
+Valor a escribir 1 en la cadena. 
+Generando la cadena: 9
+Entramos a la cerradura 
+Valor a escribir 10 -> se haran 2 copias en la cadena concatenandolas
+Valor a escribir e, como es vacio no lo pondremos.
+Generando la cadena: 10
+No entramos a la cerradura se concidera e. 
+Valor a escribir 1 en la cadena. 

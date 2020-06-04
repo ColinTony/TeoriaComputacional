@@ -48,7 +48,7 @@ public class RE {
         {
             // se entra a la parte de la cerradura (0+01)*
             // las copias de la cerradura seran
-            copias = rand.nextInt(11)+1; // maximo de copias 1000
+            copias = rand.nextInt(1001)+1; // maximo de copias 1000
             this.areaEstados.appendText("Entramos a la cerradura \n");
             this.estados.escribirArchivo("Entramos a la cerradura \n");
             
