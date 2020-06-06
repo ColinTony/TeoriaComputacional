@@ -1,0 +1,57 @@
+P->e.
+P->1P1.
+P->0P0.
+P->1P1.
+Se creó la cadena:101101
+P->0P0.
+P->0P0.
+P->1P1.
+Se creó la cadena:100001
+P->0P0.
+P->1P1.
+P->1P1.
+Se creó la cadena:110011
+P->e.
+P->1P1.
+P->1P1.
+P->0P0.
+Se creó la cadena:011110
+P->0.
+P->0P0.
+P->0P0.
+P->0P0.
+Se creó la cadena:0000000
+P->1.
+P->1P1.
+P->0P0.
+P->0P0.
+Se creó la cadena:0011100
+P->e.
+P->1P1.
+P->1P1.
+P->1P1.
+P->0P0.
+Se creó la cadena:01111110
+P->0.
+P->1P1.
+P->0P0.
+P->1P1.
+Se creó la cadena:1010101
+P->e.
+P->0P0.
+P->0P0.
+P->1P1.
+P->1P1.
+Se creó la cadena:11000011
+P->e.
+P->1P1.
+P->1P1.
+P->0P0.
+P->1P1.
+Se creó la cadena:10111101
+P->e.
+P->0P0.
+P->1P1.
+P->0P0.
+P->0P0.
+Se creó la cadena:00100100

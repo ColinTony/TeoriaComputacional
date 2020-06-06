@@ -54,12 +54,13 @@ public class FXMLMainController {
             this.spinerTam.setDisable(false);
     }
     @FXML
-    void generar(ActionEvent event) {
-        
+    void generar(ActionEvent event) throws IOException {
+        this.gen.generar(this.spinerCant.getValue(),this.spinerTam.getValue());
+        this.btnReinicio.setDisable(false);
     }
 
     @FXML
-    void reinicio(ActionEvent event) {
+    void reinicio(ActionEvent event) throws IOException {
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setHeaderText(null);
         alert.setTitle("Confirmación");
@@ -67,8 +68,11 @@ public class FXMLMainController {
         Optional<ButtonType> action = alert.showAndWait();
         
         // Si hemos pulsado en aceptar
-        if(action.get() == ButtonType.OK)
+        if(action.get() == ButtonType.OK){
             this.gen.reiniciarTodo();
+            this.btnReinicio.setDisable(true);
+        }
+            
     }
 
     @FXML
@@ -81,13 +85,13 @@ public class FXMLMainController {
     @FXML
     void initialize() throws IOException {
         // inicializamos los spinners
-        SpinnerValueFactory<Integer> valueF = new SpinnerValueFactory.IntegerSpinnerValueFactory(0, 10); // numero de cadenas
-        SpinnerValueFactory<Integer> valueF2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 100000); // minimo 3 hasta 100,000
+        SpinnerValueFactory<Integer> valueF = new SpinnerValueFactory.IntegerSpinnerValueFactory(1, 10); // numero de cadenas
+        SpinnerValueFactory<Integer> valueF2 = new SpinnerValueFactory.IntegerSpinnerValueFactory(2, 100000); // minimo 3 hasta 100,000
         this.spinerTam.setValueFactory(valueF2);
         this.spinerCant.setValueFactory(valueF);
         this.spinerCant.setEditable(false);
         this.spinerTam.setEditable(false);
-        
+        this.btnReinicio.setDisable(true);
         this.gen = new Generador(this.spinerCant.getValue(), this.spinerTam.getValue(), areaEstados, areaPalindromos);
     }
 }
