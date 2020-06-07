@@ -43,20 +43,14 @@ public class Generador {
         this.tamPal =tam;
         
         for(int j = 0; j<this.cantPals; j++){
-            this.palindromo = "";
+            this.palindromo = "P"; // (0)-> P
+            this.archivoEstados.escribirArchivo("(0)->P. \n");
+            this.areaEstados.appendText("(0)->P. \n");
             this.rand = new Random();
             // se toma el tamaño menos uno para al final 
             // tomar una de las reglas 1,2 o 3
             for(int i = 0; i<this.tamPal; i++)
             {
-                if(i == 0)
-                {
-                    // solo pondemos usar las primeras 3 reglas de produccion
-                    int regla = rand.nextInt(3)+1;
-                    
-                    System.out.println(regla);
-                    this.reglasProd(regla);
-                }
                 prodFiveFour = this.rand.nextBoolean();
                 if(prodFiveFour)
                     reglasProd(5);
@@ -65,6 +59,10 @@ public class Generador {
                 // tomamos el nuevo tamaño de la cadena
                 i = this.palindromo.length();
             }
+            // cerramos nuestro palindromo
+            int cerrar = rand.nextInt(3)+1;
+            reglasProd(cerrar);
+            System.out.println(cerrar);
             this.areaEstados.appendText("Se creó la cadena:"+this.palindromo+"\n");
             this.archivoEstados.escribirArchivo("Se creó la cadena:"+this.palindromo+"\n");
             this.archivoPalindromos.escribirArchivo(this.palindromo+"\n");
@@ -85,32 +83,36 @@ public class Generador {
             case 1:
                 // regla  P -> e
                 // añadimos el texto a los arhcivos
-                this.archivoEstados.escribirArchivo("P->e.\n");
-                this.areaEstados.appendText("P->e.\n");
+                this.palindromo=this.palindromo.replace("P", "e");
+                this.archivoEstados.escribirArchivo("("+regla+")->"+this.palindromo+". \n");
+                this.areaEstados.appendText("("+regla+")->"+this.palindromo+". \n");
+                this.archivoEstados.escribirArchivo("Tenemos:"+this.palindromo+"Quitamos la e. \n");
+                this.palindromo = this.palindromo.replace("e","");
+                
                 break;
             case 2:
                 // regla P -> 0
-                // añadimos un 0 a la cadena
-                this.archivoEstados.escribirArchivo("P->0.\n");
-                this.areaEstados.appendText("P->0.\n");
-                this.palindromo += "0";
+                this.palindromo = this.palindromo.replace("P", "0");
+                this.archivoEstados.escribirArchivo("("+regla+")->"+this.palindromo+".\n");
+                this.areaEstados.appendText("("+regla+")->"+this.palindromo+".\n");
+               
                 break;
             case 3:
                 // regla P -> 1
-                this.archivoEstados.escribirArchivo("P->1.\n");
-                this.areaEstados.appendText("P->1.\n");
-                this.palindromo += "1";
+                this.palindromo = this.palindromo.replace("P", "1");
+                this.archivoEstados.escribirArchivo("("+regla+")->"+this.palindromo+".\n");
+                this.areaEstados.appendText("("+regla+")->"+this.palindromo+".\n");
                 break;
             case 4:
                 // regla P -> 0P0
-                this.archivoEstados.escribirArchivo("P->0P0.\n");
-                this.areaEstados.appendText("P->0P0.\n");
+                this.archivoEstados.escribirArchivo("("+regla+")->0"+this.palindromo+"0.\n");
+                this.areaEstados.appendText("("+regla+")->0"+this.palindromo+"0.\n");
                 this.palindromo = "0"+this.palindromo+"0";
                 break;
             case 5:
                 // regla P -> 1P1
-                this.archivoEstados.escribirArchivo("P->1P1.\n");
-                this.areaEstados.appendText("P->1P1.\n");
+                this.archivoEstados.escribirArchivo("("+regla+")->1"+this.palindromo+"1.\n");
+                this.areaEstados.appendText("("+regla+")->1"+this.palindromo+"1.\n");
                 this.palindromo = "1"+this.palindromo+"1";
                 break;
             default:
