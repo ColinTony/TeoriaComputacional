@@ -2,6 +2,7 @@ package generadorpalindromos;
 
 import java.io.IOException;
 import java.util.Random;
+import javafx.scene.control.Spinner;
 import javafx.scene.control.TextArea;
 
 /**
@@ -60,9 +61,9 @@ public class Generador {
                 i = this.palindromo.length();
             }
             // cerramos nuestro palindromo
-            int cerrar = rand.nextInt(3)+1;
+            int cerrar = rand.nextInt((3-2)+1)+2; // force el 2 y 3 para que cumpliera con el rango pedido del usuario
+            // ya que si sale e faltaria un caracter para que cumpla con el rango.
             reglasProd(cerrar);
-            System.out.println(cerrar);
             this.areaEstados.appendText("Se creó la cadena:"+this.palindromo+"\n");
             this.archivoEstados.escribirArchivo("Se creó la cadena:"+this.palindromo+"\n");
             this.archivoPalindromos.escribirArchivo(this.palindromo+"\n");
@@ -120,6 +121,42 @@ public class Generador {
                 
                 break;
              
+        }
+    }
+
+    void generar(int cantidad) throws IOException {
+        this.archivoEstados = new ArchivoRutas("estados");
+        this.archivoPalindromos = new ArchivoRutas("palindromos");
+        boolean prodFiveFour; // si es verdadero tomara la regla 5 en otro caso la 4
+        this.cantPals = cantidad;
+        this.rand = new Random();
+        this.tamPal = rand.nextInt(10)+1;
+        
+        for(int j = 0; j<this.cantPals; j++){
+            this.palindromo = "P"; // (0)-> P
+            this.archivoEstados.escribirArchivo("(0)->P. \n");
+            this.areaEstados.appendText("(0)->P. \n");
+            this.rand = new Random();
+            // se toma el tamaño menos uno para al final 
+            // tomar una de las reglas 1,2 o 3
+            for(int i = 0; i<this.tamPal; i++)
+            {
+                prodFiveFour = this.rand.nextBoolean();
+                if(prodFiveFour)
+                    reglasProd(5);
+                else
+                    reglasProd(4);
+                // tomamos el nuevo tamaño de la cadena
+                i = this.palindromo.length();
+            }
+            // cerramos nuestro palindromo
+            int cerrar = rand.nextInt((3-2)+1)+2; // force el 2 y 3 para que cumpliera con el rango pedido del usuario
+            // ya que si sale e faltaria un caracter para que cumpla con el rango.
+            reglasProd(cerrar);
+            this.areaEstados.appendText("Se creó la cadena:"+this.palindromo+"\n");
+            this.archivoEstados.escribirArchivo("Se creó la cadena:"+this.palindromo+"\n");
+            this.archivoPalindromos.escribirArchivo(this.palindromo+"\n");
+            this.areaPalindromos.appendText(this.palindromo+"\n");
         }
     }
 }

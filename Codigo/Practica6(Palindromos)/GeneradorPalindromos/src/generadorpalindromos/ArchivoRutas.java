@@ -5,10 +5,6 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-/**
- *
- * @author colin
- */
 public class ArchivoRutas {
     private String ruta;
     private String nombreArchivo;

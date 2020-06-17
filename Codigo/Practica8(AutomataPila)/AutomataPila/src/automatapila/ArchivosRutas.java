@@ -1,11 +1,15 @@
-package expresionregular;
+package automatapila;
 
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ArchivoRutas {
+/**
+ *
+ * @author colin
+ */
+public class ArchivosRutas {
     private String ruta;
     private String nombreArchivo;
     private String pathCompleto;
@@ -14,9 +18,9 @@ public class ArchivoRutas {
     private FileWriter fw;
     private BufferedWriter bw;
     
-    public ArchivoRutas(String nombreArchivo) throws IOException
+    public ArchivosRutas(String nombreArchivo) throws IOException
     {
-        this.ruta = "./src/expresionregular/";
+        this.ruta = "./src/automatapila/";
         this.nombreArchivo = nombreArchivo;
         this.pathCompleto = ruta+nombreArchivo+".txt";
         

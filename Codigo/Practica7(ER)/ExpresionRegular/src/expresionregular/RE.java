@@ -20,7 +20,6 @@ public class RE {
     */
     public RE(JFXTextArea estados,JFXTextArea cadenas) throws IOException
     {
-        this.rand = new Random();
         this.estados = new ArchivoRutas("estados");
         this.cadenas = new ArchivoRutas("cadenas");
         this.areaCadenas = cadenas;
@@ -38,6 +37,7 @@ public class RE {
         boolean cerradura;
         int copias;
         String cadena ="";
+        this.rand = new Random();
         
         // determinamos si entramos a la cerradura
         cerradura = this.rand.nextBoolean();

@@ -55,7 +55,11 @@ public class FXMLMainController {
     }
     @FXML
     void generar(ActionEvent event) throws IOException {
-        this.gen.generar(this.spinerCant.getValue(),this.spinerTam.getValue());
+        if(!this.chkAuto.isSelected())
+            this.gen.generar(this.spinerCant.getValue(),this.spinerTam.getValue());
+        else
+            this.gen.generar(this.spinerCant.getValue());
+        
         this.btnReinicio.setDisable(false);
     }
 

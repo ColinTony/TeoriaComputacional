@@ -1,16 +1,13 @@
-#enconding: utf-8
-import numpy as np #paquetes de computacion cientifica
-import matplotlib.pyplot as plt
+/*
+3)
+a) Implementar una función que reciba una matriz cuadrada de doubles de dimensión 3 y
+retorne el valor de su determinante.
 
-ejeX = []
+Prototipo-->《double calcular_determinante(double m[3][3]);》
 
-f = open ('UnosBinarios.txt','r')
+b) Implementar una función que reciba una matriz cuadrada de doubles de dimensión 3 y
+retorne el valor de su matriz inversa. En caso de poder calcularse deberá retornar ​ (tipo
+enumerativo) ​ EXITO y en caso de no poder hacerlo, deberá retornar ERROR.
 
-cadAux = f.readlines()
-for i in cadAux:
-	ejeX.append(i) 
-
-ejeY = ejeX*1
-plt.title("Unos de numeros primos binarios")
-plt.plot(ejeX,".")
-plt.show()
+ prototipo-->《int calcular_matriz_inversa(double m_original[3][3], double m_inversa[3][3]);》
+ */
