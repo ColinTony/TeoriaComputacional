@@ -13,10 +13,9 @@ public class PDA {
     private boolean isValida;
     private ArchivosRutas secuencia;
     
-    public PDA(String cadena) throws IOException
+    public PDA(String cadena)
     {
         // constructor
-        this.secuencia = new ArchivosRutas("secuencia");
         this.cadena = cadena;
         this.estado = "q";
         this.pila = new Stack();
@@ -28,9 +27,9 @@ public class PDA {
         para determinar si la cadena es valida
         devolvera un true o false si la cadena es o no valida
     */
-    public boolean empezarEvaluacion()
+    public boolean empezarEvaluacion() throws IOException
     {
-        
+        this.secuencia = new ArchivosRutas("secuencia");
         return this.isValida;
     }
     
