@@ -31,7 +31,7 @@ public class GeneradorCadenas {
     public String generarCadena(int tam)
     {
         this.cad = "";
-        int cantCeros = rand.nextInt(tam);
+        int cantCeros = rand.nextInt(tam)+1;
         int cantUnos = tam-cantCeros;
         // ceros
         for(int i = 0; i <cantCeros; i++)

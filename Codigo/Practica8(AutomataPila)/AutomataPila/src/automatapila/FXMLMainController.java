@@ -1,5 +1,6 @@
 package automatapila;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -10,7 +11,10 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
+
 
 public class FXMLMainController {
     @FXML
@@ -32,13 +36,30 @@ public class FXMLMainController {
     
     
     //Automata de pila
-    private AutomataPila PDA;
+    private PDA automataDePila;
     //generador de cadenas
     private GeneradorCadenas generador;
+    private String cad;
     
     @FXML
-    void iniciar(ActionEvent event) {
-        PDA = new AutomataPila();
+    void iniciar(ActionEvent event) throws IOException {
+        
+        if(this.chkAuto.isSelected()) // generacion automatica
+            this.automataDePila = new PDA(this.cad,this.textAreaProceso);
+        else{
+            // cadena manual
+            this.textCadenaEvaluar.setText(this.textCadena.getText().trim());
+            this.automataDePila = new PDA(this.textCadena.getText().trim(),this.textAreaProceso);
+        }
+        
+        if(this.automataDePila.empezarEvaluacion()){
+            this.textMensaje.setText("La cadena es valida");
+            this.textMensaje.setFill(Color.web("#40FF00"));
+        }
+        else{
+            this.textMensaje.setText("La cadena es invalida");
+            this.textMensaje.setFill(Color.web("#FF0000"));
+        }
     }
 
     @FXML
@@ -49,8 +70,8 @@ public class FXMLMainController {
     @FXML
     void generarCad(ActionEvent event)
     {
-        String cad = this.generador.generarCadena(this.longitudCadena.getValue());
-        this.textCadenaEvaluar.setText(cad);
+        this.cad = this.generador.generarCadena(this.longitudCadena.getValue());
+        this.textCadenaEvaluar.setText(this.cad);
     }
 
     @FXML
@@ -58,5 +79,7 @@ public class FXMLMainController {
        SpinnerValueFactory values = new SpinnerValueFactory.IntegerSpinnerValueFactory(2, 10000,1);
        this.longitudCadena.setValueFactory(values);
        this.generador = new GeneradorCadenas();
+       this.btnGenearCadena.setDisable(!this.chkAuto.isSelected());
+       this.btnStart.setDisable(false);
     }
 }
