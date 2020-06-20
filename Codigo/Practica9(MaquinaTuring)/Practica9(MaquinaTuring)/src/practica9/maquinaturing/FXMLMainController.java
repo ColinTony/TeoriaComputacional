@@ -1,5 +1,6 @@
 package practica9.maquinaturing;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -10,6 +11,7 @@ import javafx.scene.control.Spinner;
 import javafx.scene.control.SpinnerValueFactory;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 public class FXMLMainController {
@@ -29,20 +31,6 @@ public class FXMLMainController {
     @FXML
     private Text txtCadAna;
 
-    @FXML
-    private Text txtm2;
-
-    @FXML
-    private Text txtm1;
-
-    @FXML
-    private Text txt1;
-
-    @FXML
-    private Text txt2;
-
-    @FXML
-    private Text txt0;
     @FXML
     private Text txtValida;
     
@@ -71,19 +59,19 @@ public class FXMLMainController {
     }
 
     @FXML
-    void iniciarMaquina(ActionEvent event) throws InterruptedException {
+    void iniciarMaquina(ActionEvent event) throws InterruptedException, IOException {
         
         if(this.chkAuto.isSelected())
         {
             // modo automatico
             this.txtCadAna.setText(this.cadena);
-            this.maquinaT = new MaquinaTuring(this.cadena, this.txtm1, this.txtm2, this.txt1, this.txt2, this.txt0, this.textAreaDatos);
+            this.maquinaT = new MaquinaTuring(this.cadena,this.textAreaDatos);
             this.validar();
         }else
         {
             // modo manual
             this.txtCadAna.setText(this.txtCadena.getText());
-            this.maquinaT = new MaquinaTuring(this.txtCadena.getText(), this.txtm1, this.txtm2, this.txt1, this.txt2, this.txt0, this.textAreaDatos);
+            this.maquinaT = new MaquinaTuring(this.txtCadena.getText(),this.textAreaDatos);
             this.validar();
         }
     }
@@ -103,12 +91,14 @@ public class FXMLMainController {
         this.gen = new GeneradorCadenas();
     }
     
-    public void validar() throws InterruptedException
+    public void validar() throws InterruptedException, IOException
     {
         if(this.maquinaT.iniciarMaquina()){
             this.txtValida.setText("cadena valida");
+            this.txtValida.setFill(Color.web("#24FC0D"));
          }else
          {
+             this.txtValida.setFill(Color.web("#FF0000"));
              this.txtValida.setText("Cadena invalida");
          }
     }

@@ -20,7 +20,7 @@ public class ArchivosRutas {
     
     public ArchivosRutas(String nombreArchivo) throws IOException
     {
-        this.ruta = "./src/maquinaturing/";
+        this.ruta = "./src/practica9/maquinaturing/";
         this.nombreArchivo = nombreArchivo;
         this.pathCompleto = ruta+nombreArchivo+".txt";
         
