@@ -1,14 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="200" prefWidth="320" xmlns:fx="http://javafx.com/fxml/1" fx:controller="practica9.maquinaturing.FXMLMainController">
-    <children>
-        <Button layoutX="126" layoutY="90" text="Click Me!" onAction="#handleButtonAction" fx:id="button" />
-        <Label layoutX="126" layoutY="120" minHeight="16" minWidth="69" fx:id="label" />
-    </children>
+<AnchorPane id="AnchorPane" prefHeight="719.0" prefWidth="876.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="practica9.maquinaturing.FXMLMainController">
+   <children>
+      <Text layoutX="262.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAQUINA DE TURING" wrappingWidth="366.2691650390625">
+         <font>
+            <Font name="LetterOMatic!" size="28.0" />
+         </font>
+      </Text>
+      <Text layoutX="40.0" layoutY="124.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ingresar cadena:">
+         <font>
+            <Font name="Martina Regular" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="14.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Longitud de cadena:">
+         <font>
+            <Font name="Martina Regular" size="18.0" />
+         </font>
+      </Text>
+      <TextField fx:id="txtCadena" layoutX="166.0" layoutY="105.0" prefHeight="26.0" prefWidth="410.0" />
+      <Spinner fx:id="sppinerNum" layoutX="166.0" layoutY="153.0" />
+      <CheckBox fx:id="chkAuto" layoutX="403.0" layoutY="157.0" mnemonicParsing="false" onAction="#automatico" text="Automatico" />
+      <Button layoutX="505.0" layoutY="152.0" mnemonicParsing="false" onAction="#iniciarMaquina" prefHeight="26.0" prefWidth="70.0" text="Iniciar" />
+      <Button fx:id="btnGenerear" layoutX="325.0" layoutY="153.0" mnemonicParsing="false" onAction="#generarCadena" text="Generar" />
+      <ImageView fitHeight="163.0" fitWidth="192.0" layoutX="673.0" layoutY="50.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@image/escom.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="8.0" layoutY="699.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Luis Antonio Colin Heredia">
+         <font>
+            <Font name="MV Boli" size="12.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtCadAna" layoutX="166.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font name="Marlett" size="15.0" />
+         </font>
+      </Text>
+      <Text layoutX="97.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cadena:">
+         <font>
+            <Font name="Martina Regular" size="18.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" height="100.0" layoutX="393.0" layoutY="265.0" stroke="BLACK" strokeLineCap="ROUND" strokeLineJoin="ROUND" strokeType="INSIDE" width="104.0">
+         <fill>
+            <LinearGradient cycleMethod="REFLECT" endX="1.0" endY="1.0">
+               <stops>
+                  <Stop color="#cdcdcd" />
+                  <Stop color="#ba282b" offset="1.0" />
+               </stops>
+            </LinearGradient>
+         </fill>
+      </Rectangle>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="523.0" layoutY="265.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="650.0" layoutY="265.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="258.0" layoutY="266.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="100.0" layoutX="136.0" layoutY="266.0" opacity="0.51" stroke="BLACK" strokeType="INSIDE" width="104.0" />
+      <Line endX="-90.20001220703125" endY="53.79998779296875" layoutX="535.0" layoutY="384.0" startX="-90.20001220703125" startY="2.60003662109375" />
+      <Polygon fill="#ff1717" layoutX="440.0" layoutY="384.0" points="-7.5999755859375, 2.4000244140625, 16.79998779296875, 2.4000244140625, 4.0, -18.0" stroke="BLACK" strokeType="INSIDE" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#8c8c8c" height="112.0" layoutX="130.0" layoutY="260.0" opacity="0.18" stroke="BLACK" strokeType="INSIDE" width="641.0" />
+      <Text fx:id="txtm2" layoutX="175.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="24.39996337890625">
+         <font>
+            <Font name="Eras Bold ITC" size="32.0" />
+         </font>
+      </Text>
+      <Text fx:id="txtm1" layoutX="296.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="13.5999755859375">
+         <font>
+            <Font name="Eras Bold ITC" size="32.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt1" layoutX="426.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="24.399963378906136">
+         <font>
+            <Font name="Eras Bold ITC" size="32.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt2" layoutX="695.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="13.5999755859375">
+         <font>
+            <Font name="Eras Bold ITC" size="32.0" />
+         </font>
+      </Text>
+      <Text fx:id="txt0" layoutX="561.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="13.5999755859375">
+         <font>
+            <Font name="Eras Bold ITC" size="32.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="textAreaDatos" layoutX="193.0" layoutY="431.0" prefHeight="239.0" prefWidth="502.0" />
+      <Text fx:id="txtValida" layoutX="540.0" layoutY="417.0" strokeType="OUTSIDE" strokeWidth="0.0">
+         <font>
+            <Font name="Bastion Regular" size="32.0" />
+         </font>
+      </Text>
+      <Button fx:id="btnReset" layoutX="598.0" layoutY="153.0" mnemonicParsing="false" onAction="#limpiar" prefHeight="26.0" prefWidth="58.0" text="Reset" />
+   </children>
 </AnchorPane>
